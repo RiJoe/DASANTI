@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dasanti.riskmessageinput.mapper.InsertTableMapper">
+    <insert id="insertTableName" parameterType="java.lang.String" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO input_table(table_name) values (#{tableName})
+    </insert>
+    <insert id="insertTableDetails" parameterType="com.dasanti.riskmessageinput.entity.InsertTableDetails">
+        INsert INTO input_message(
+        table_id,
+        category_id,
+        influence_factor,
+        determine_factor,
+        score,
+        table_name,
+        photo
+        ) values (
+        #{tableId},
+        #{categoryId},
+        #{influenceFactor},
+        #{determineFactor},
+        #{score},
+        #{tableName},
+        #{photo}
+        )
+    </insert>
+    <resultMap id="tableDetailsMap" type="com.dasanti.riskmessageinput.entity.InsertTableDetails">
+        <id column="id" property="id"></id>
+        <result column="table_id" property="tableId"/>
+        <result column="table_name" property="tableName"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="influence_factor" property="influenceFactor"/>
+        <result column="determine_factor" property="determineFactor"/>
+        <result column="score" property="score"/>
+        <result column="photo" property="photo"/>
+    </resultMap>
+    <select id="getInsertTableDetailsById" parameterType="java.lang.Integer" resultMap="tableDetailsMap">
+        SELECT * FROM input_message WHERE table_id = #{tableId}
+    </select>
+</mapper>
