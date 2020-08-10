@@ -1,9 +1,6 @@
 package com.dasanti.riskmessageinput.service.serviceImpl;
 
-import com.dasanti.riskmessageinput.entity.InsertTable;
-import com.dasanti.riskmessageinput.entity.InsertTableDetails;
-import com.dasanti.riskmessageinput.entity.InsertTableDetailsVO;
-import com.dasanti.riskmessageinput.entity.TableDetails;
+import com.dasanti.riskmessageinput.entity.*;
 import com.dasanti.riskmessageinput.mapper.InsertTableMapper;
 import com.dasanti.riskmessageinput.service.InsertTableService;
 import org.springframework.beans.BeanUtils;
@@ -30,11 +27,9 @@ public class InsertTableServiceImpl implements InsertTableService {
     }
 
     @Override
-    public List<InsertTableDetails> getInsertTableDetailsById(Integer tableId) {
-        List<TableDetails> list = new ArrayList();
-        List<InsertTableDetailsVO> listVO = new ArrayList();
-        List<InsertTableDetails> insertTableDetailsList = insertTableMapper.getInsertTableDetailsById(tableId);
-        for (int i = 1;i<insertTableDetailsList.size();i++){
+    public List<InsertTableDetailsVO> getInsertTableDetailsById(Integer tableId) {
+        //List<InsertTableDetailsVO> insertTableDetailsVOList = insertTableMapper.getInsertTableDetailsById(tableId);
+        /*for (int i = 1;i<insertTableDetailsList.size();i++){
             if(!insertTableDetailsList.get(i).getInfluenceFactor().equals(insertTableDetailsList.get(i - 1).getInfluenceFactor())){
                 InsertTableDetailsVO insertTableDetailsVO = new InsertTableDetailsVO();
                 BeanUtils.copyProperties(insertTableDetailsList.get(i),insertTableDetailsVO);
@@ -47,7 +42,7 @@ public class InsertTableServiceImpl implements InsertTableService {
             BeanUtils.copyProperties(insertTableDetailsList.get(i),tableDetails);
             list.add(tableDetails);
         }
-        /*InsertTableDetailsVO insertTableDetailsVO = new InsertTableDetailsVO();
+        *//*InsertTableDetailsVO insertTableDetailsVO = new InsertTableDetailsVO();
         BeanUtils.copyProperties(insertTableDetailsList.get(0),insertTableDetailsVO);
         listVO.add(0,insertTableDetailsVO);
         for(int i=0;i<listVO.size();i++){
@@ -56,11 +51,21 @@ public class InsertTableServiceImpl implements InsertTableService {
                     listVO.get(i).getTableDetailsList().add(list.get(j));
                 }
             }
-        }*/
+        }*//*
 
         System.out.println(listVO);
         System.out.println(list);
-        //System.out.println(insertTableDetailsList);
-        return insertTableDetailsList;
+        //System.out.println(insertTableDetailsList);*/
+        return insertTableMapper.getInsertTableDetailsById(tableId);
+    }
+
+    @Override
+    public void insertTableForInfluence(InsertTableInfluenceFactor insertTableInfluenceFactor) {
+        insertTableMapper.insertTableForInfluence(insertTableInfluenceFactor);
+    }
+
+    @Override
+    public List<InsertTable> getAllFormWork() {
+        return insertTableMapper.getAllFormWork();
     }
 }

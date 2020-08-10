@@ -23,17 +23,50 @@
         #{photo}
         )
     </insert>
-    <resultMap id="tableDetailsMap" type="com.dasanti.riskmessageinput.entity.InsertTableDetails">
+    <resultMap id="tableDetailsMap" type="com.dasanti.riskmessageinput.entity.InsertTableDetailsVO">
         <id column="id" property="id"></id>
         <result column="table_id" property="tableId"/>
         <result column="table_name" property="tableName"/>
         <result column="category_id" property="categoryId"/>
         <result column="influence_factor" property="influenceFactor"/>
-        <result column="determine_factor" property="determineFactor"/>
-        <result column="score" property="score"/>
-        <result column="photo" property="photo"/>
+        <collection property="tableDetailsList" ofType="com.dasanti.riskmessageinput.entity.InsertTableDetails">
+            <id column="id" property="id"/>
+            <result column="table_id" property="tableId"/>
+            <result column="table_name" property="tableName"/>
+            <result column="category_id" property="categoryId"/>
+            <result column="influence_factor" property="influenceFactor"/>
+            <result column="determine_factor" property="determineFactor"/>
+            <result column="score" property="score"/>
+            <result column="photo" property="photo"/>
+        </collection>
     </resultMap>
     <select id="getInsertTableDetailsById" parameterType="java.lang.Integer" resultMap="tableDetailsMap">
-        SELECT * FROM input_message WHERE table_id = #{tableId}
+        SELECT * FROM
+        input_table_details
+        LEFT JOIN
+        input_message
+        ON
+        input_table_details.table_id = input_message.table_id AND input_table_details.influence_factor = input_message.influence_factor
+        WHERE input_table_details.table_id = #{tableId}
+    </select>
+    <insert id="insertTableForInfluence" parameterType="com.dasanti.riskmessageinput.entity.InsertTableInfluenceFactor">
+        INSERT INTO input_table_details(
+        table_id,
+        table_name,
+        category_id,
+        influence_factor
+        ) values (
+        #{tableId},
+        #{tableName},
+        #{categoryId},
+        #{influenceFactor}
+        )
+    </insert>
+    <resultMap id="getAllFormWorkMap" type="com.dasanti.riskmessageinput.entity.InsertTable">
+        <id column="id" property="id"/>
+        <result column="table_name" property="tableName"/>
+    </resultMap>
+    <select id="getAllFormWork" resultMap="getAllFormWorkMap">
+        select * from input_table
     </select>
 </mapper>

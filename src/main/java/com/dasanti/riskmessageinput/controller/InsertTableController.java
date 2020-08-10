@@ -2,6 +2,8 @@ package com.dasanti.riskmessageinput.controller;
 
 import com.dasanti.riskmessageinput.entity.InsertTable;
 import com.dasanti.riskmessageinput.entity.InsertTableDetails;
+import com.dasanti.riskmessageinput.entity.InsertTableDetailsVO;
+import com.dasanti.riskmessageinput.entity.InsertTableInfluenceFactor;
 import com.dasanti.riskmessageinput.service.InsertTableService;
 import com.dasanti.riskmessageinput.util.ResultEntity;
 import org.springframework.web.bind.annotation.*;
@@ -40,9 +42,29 @@ public class InsertTableController {
 
     }
     @RequestMapping("/get/table/by/id")
-    public ResultEntity<List<InsertTableDetails>> getInsertTableDetailsById(@RequestParam Integer tableId){
-        List<InsertTableDetails> insertTableDetailsList = insertTableService.getInsertTableDetailsById(tableId);
-        return ResultEntity.successWithData(insertTableDetailsList);
+    public ResultEntity<List<InsertTableDetailsVO>> getInsertTableDetailsById(@RequestParam Integer tableId){
+        List<InsertTableDetailsVO> insertTableDetailsVOList = insertTableService.getInsertTableDetailsById(tableId);
+        return ResultEntity.successWithData(insertTableDetailsVOList);
+    }
+    // 保存模板影响因素
+    @RequestMapping("/insert/table/influence")
+    public ResultEntity<InsertTableInfluenceFactor> insertTableInfluenceFactorResultEntity(@RequestBody InsertTableInfluenceFactor insertTableInfluenceFactor){
+        try{
+            insertTableService.insertTableForInfluence(insertTableInfluenceFactor);
+            return ResultEntity.successWithoutData();
+        }catch (Exception e){
+            return ResultEntity.failed(e.getMessage());
+        }
+    }
+    // 获取所有模板
+    @RequestMapping("/get/all/formwork")
+    public ResultEntity<List<InsertTable>> getAllFormWork(){
+        try {
+            List<InsertTable> insertTableList = insertTableService.getAllFormWork();
+            return ResultEntity.successWithData(insertTableList);
+        }catch (Exception e){
+            return ResultEntity.failed(e.getMessage());
+        }
     }
 
 }
