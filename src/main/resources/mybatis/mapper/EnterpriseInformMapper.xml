@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dasanti.riskmessageinput.mapper.EnterpriseInformMapper">
+    <insert id="saveEnterpriseInform" parameterType="com.dasanti.riskmessageinput.entity.EnterpriseInform" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO enterprise_inform(
+        company_type,
+        company_name,
+        principal,
+        address,
+        informant,
+        informant_number,
+        lng,
+        lat,
+        total_number,
+        risk_value,
+        measure,
+        major_danger,
+        major_risk_name
+        )VALUES(
+        #{companyType},
+        #{companyName},
+        #{principal},
+        #{address},
+        #{informant},
+        #{informantNumber},
+        #{lng},
+        #{lat},
+        #{totalNumber},
+        #{riskValue},
+        #{measure},
+        #{majorDanger},
+        #{majorRiskName}
+        )
+    </insert>
+</mapper>

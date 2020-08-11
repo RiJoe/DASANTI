@@ -2,6 +2,10 @@ server:
   port: 7000
 
 spring:
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
   datasource:
     name: mydb
     type: com.alibaba.druid.pool.DruidDataSource
@@ -9,6 +13,10 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    static-path-pattern: /uploadFile/**
+  resources:
+    static-locations: file:D://uploadFile/
 
 mybatis:
   mapper-locations: classpath*:/mybatis/mapper/*Mapper.xml

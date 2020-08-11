@@ -30,7 +30,6 @@
         <result column="category_id" property="categoryId"/>
         <result column="influence_factor" property="influenceFactor"/>
         <collection property="tableDetailsList" ofType="com.dasanti.riskmessageinput.entity.InsertTableDetails">
-            <id column="id" property="id"/>
             <result column="table_id" property="tableId"/>
             <result column="table_name" property="tableName"/>
             <result column="category_id" property="categoryId"/>
@@ -46,7 +45,7 @@
         LEFT JOIN
         input_message
         ON
-        input_table_details.table_id = input_message.table_id AND input_table_details.influence_factor = input_message.influence_factor
+        input_table_details.influence_factor = input_message.influence_factor
         WHERE input_table_details.table_id = #{tableId}
     </select>
     <insert id="insertTableForInfluence" parameterType="com.dasanti.riskmessageinput.entity.InsertTableInfluenceFactor">

@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class InsertTableDetails {
-    private Integer id;
     private Integer tableId;
     private String tableName;
     private Integer categoryId;
