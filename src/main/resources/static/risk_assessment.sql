@@ -11,7 +11,7 @@
  Target Server Version : 50731
  File Encoding         : 65001
 
- Date: 10/08/2020 17:49:35
+ Date: 11/08/2020 17:41:47
 */
 
 SET NAMES utf8mb4;
@@ -152,6 +152,47 @@ INSERT INTO `enterprise` VALUES (9, '华为', 'mark', 'mark', '19845125451', 100
 INSERT INTO `enterprise` VALUES (10, '北京科技', 'chirs', 'mark', '19845125451', 1000, '深圳观湖街道办', '114.079244183741', '22.69930893327341', '无', 888, 232, '硫酸', '喷油');
 
 -- ----------------------------
+-- Table structure for enterprise_inform
+-- ----------------------------
+DROP TABLE IF EXISTS `enterprise_inform`;
+CREATE TABLE `enterprise_inform`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `company_type` int(11) NULL DEFAULT NULL,
+  `company_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `principal` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `informant` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `informant_number` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `lng` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `lat` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `total_number` int(11) NULL DEFAULT NULL,
+  `risk_value` int(11) NULL DEFAULT NULL,
+  `measure` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `major_danger` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `major_risk_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of enterprise_inform
+-- ----------------------------
+INSERT INTO `enterprise_inform` VALUES (1, 60, '深圳大三体安全科技有限公司', 'Regina', '深圳中海信创新产业城', 'joe', '19845475415', '', '', 500, 500, '200', '硫酸', '硫酸');
+INSERT INTO `enterprise_inform` VALUES (2, 58, '深圳云央科技', 'joe', '深圳云央科技', 'joe', '1878784541', '', '', 4, 200, '200', '', '');
+INSERT INTO `enterprise_inform` VALUES (3, 58, '深圳云央科技', 'joe', '深圳云央科技', 'joe', '1878784541', '', '', 4, 200, '200', '', '');
+INSERT INTO `enterprise_inform` VALUES (4, 59, 'heool', '', '', '', '', '', '', NULL, 450, '', '', '');
+INSERT INTO `enterprise_inform` VALUES (5, 59, 'guanhu', '', '', '', '', '', '', NULL, 500, '', '', '');
+INSERT INTO `enterprise_inform` VALUES (6, 59, '深圳', '', '', '', '', '', '', NULL, 500, '', '', '');
+INSERT INTO `enterprise_inform` VALUES (7, 58, '广州', '', '', '', '', '', '', NULL, 300, '', '', '');
+INSERT INTO `enterprise_inform` VALUES (8, 59, '上海', '', '', '', '', '', '', NULL, 100, '', '', '');
+INSERT INTO `enterprise_inform` VALUES (9, 59, '阿萨', '', '', '', '', '', '', NULL, 70, '', '', '');
+INSERT INTO `enterprise_inform` VALUES (10, 59, '地方', '', '', '', '', '', '', NULL, 10, '', '', '');
+INSERT INTO `enterprise_inform` VALUES (11, 59, '观湖', '', '', '', '', '', '', NULL, 20, '', '', '');
+INSERT INTO `enterprise_inform` VALUES (12, 60, 'hello', '', '', '', '', '', '', NULL, 20, '', '', '');
+INSERT INTO `enterprise_inform` VALUES (13, 59, 'df ', '', '', '', '', '', '', NULL, 10, '', '', '');
+INSERT INTO `enterprise_inform` VALUES (14, 59, 'asd', '', '', '', '', '', '', NULL, 12, '', '', '');
+INSERT INTO `enterprise_inform` VALUES (15, 58, 'adf', '', '', '', '', '', '', NULL, 2, '', '', '');
+
+-- ----------------------------
 -- Table structure for factor_score
 -- ----------------------------
 DROP TABLE IF EXISTS `factor_score`;
@@ -272,7 +313,7 @@ CREATE TABLE `input_table`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `table_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 62 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 63 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of input_table
@@ -307,7 +348,7 @@ INSERT INTO `input_table_details` VALUES (28, 60, '人的因素', 2, '观湖超�
 INSERT INTO `input_table_details` VALUES (29, 60, '人员密度', 3, '观湖超高层建筑点位风险评估模板');
 INSERT INTO `input_table_details` VALUES (30, 61, '商场位置', 1, '观湖大型商场点位风险评估模板');
 INSERT INTO `input_table_details` VALUES (31, 61, '人的因素', 2, '观湖大型商场点位风险评估模板');
-INSERT INTO `input_table_details` VALUES (32, 61, '高峰时段 人员密度', 3, '观湖大型商场点位风险评估模板');
+INSERT INTO `input_table_details` VALUES (32, 61, '高峰时段人员密度', 3, '观湖大型商场点位风险评估模板');
 
 -- ----------------------------
 -- Table structure for user
