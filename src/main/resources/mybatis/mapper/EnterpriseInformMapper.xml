@@ -32,4 +32,28 @@
         #{majorRiskName}
         )
     </insert>
+    <insert id="saveInfluenceFactorDetails" parameterType="com.dasanti.riskmessageinput.entity.InfluenceFactorDetails">
+        INSERT INTO influence_factor_details (
+        enterprise_id,
+        category_id,
+        determine_factor,
+        score,
+        photo
+        ) VALUES (
+        #{enterpriseId},
+        #{categoryId},
+        #{determineFactor},
+        #{score},
+        #{photo}
+        )
+    </insert>
+    <insert id="saveWordUrl" parameterType="com.dasanti.riskmessageinput.entity.WordUrl">
+        INSERT INTO word_details (
+        enterprise_id,
+        word_url
+        ) VALUES (
+        #{enterpriseId},
+        #{wordUrl}
+        )
+    </insert>
 </mapper>

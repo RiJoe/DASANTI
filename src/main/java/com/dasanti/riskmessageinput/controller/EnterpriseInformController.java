@@ -1,6 +1,8 @@
 package com.dasanti.riskmessageinput.controller;
 
 import com.dasanti.riskmessageinput.entity.EnterpriseInform;
+import com.dasanti.riskmessageinput.entity.InfluenceFactorDetails;
+import com.dasanti.riskmessageinput.entity.WordUrl;
 import com.dasanti.riskmessageinput.service.EnterpriseInformService;
 import com.dasanti.riskmessageinput.util.ResultEntity;
 import com.dasanti.riskmessageinput.util.UploadUtil;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 public class EnterpriseInformController {
@@ -45,8 +49,37 @@ public class EnterpriseInformController {
             }
 
         }
-
-
         return ResultEntity.successWithData(src);
+    }
+    // 保存影响因素详细信息
+    @RequestMapping("/save/influence/factor/details")
+    public ResultEntity<String> saveInfluenceFactorDetails(@RequestBody Map<String,List<InfluenceFactorDetails>> influenceFactorDetailsMap) {
+        try {
+            System.out.println(influenceFactorDetailsMap);
+            if (influenceFactorDetailsMap.containsKey("influenceFactorDetailsList")){
+                List<InfluenceFactorDetails> influenceFactorDetailsList = influenceFactorDetailsMap.get("influenceFactorDetailsList");
+                for (int i = 0; i < influenceFactorDetailsList.size(); i++) {
+                    enterpriseInformService.saveInfluenceFactorDetails(influenceFactorDetailsList.get(i));
+                }
+                return ResultEntity.successWithoutData();
+            }else{
+                return ResultEntity.failed("保存失败");
+            }
+
+        } catch (Exception e) {
+            return ResultEntity.failed(e.getMessage());
+        }
+        //System.out.println(influenceFactorDetailsList);
+    }
+    // 保存word文档
+    @RequestMapping("/save/word/url")
+    public ResultEntity<String> saveWordUrl(@RequestBody WordUrl wordUrl){
+        System.out.println(wordUrl);
+        try{
+            enterpriseInformService.saveWordUrl(wordUrl);
+            return ResultEntity.successWithoutData();
+        }catch(Exception e){
+            return ResultEntity.failed(e.getMessage());
+        }
     }
 }
