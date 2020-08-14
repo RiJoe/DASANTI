@@ -56,4 +56,25 @@
         #{wordUrl}
         )
     </insert>
+    <insert id="saveOtherInfluenceDetails" parameterType="com.dasanti.riskmessageinput.entity.OtherInfluenceDetails">
+        INSERT INTO other_influence (
+        enterprise_id,
+        valuation_category,
+        major_risk_category,
+        judge_l,
+        judge_e,
+        judge_c,
+        judge_r,
+        risk_level
+        ) VALUES (
+        #{enterpriseId},
+        #{valuationCategory},
+        #{majorRiskCategory},
+        #{judgeL},
+        #{judgeE},
+        #{judgeC},
+        #{judgeR},
+        #{riskLevel}
+        )
+    </insert>
 </mapper>

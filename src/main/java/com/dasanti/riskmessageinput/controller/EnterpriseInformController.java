@@ -2,6 +2,7 @@ package com.dasanti.riskmessageinput.controller;
 
 import com.dasanti.riskmessageinput.entity.EnterpriseInform;
 import com.dasanti.riskmessageinput.entity.InfluenceFactorDetails;
+import com.dasanti.riskmessageinput.entity.OtherInfluenceDetails;
 import com.dasanti.riskmessageinput.entity.WordUrl;
 import com.dasanti.riskmessageinput.service.EnterpriseInformService;
 import com.dasanti.riskmessageinput.util.ResultEntity;
@@ -77,6 +78,15 @@ public class EnterpriseInformController {
         System.out.println(wordUrl);
         try{
             enterpriseInformService.saveWordUrl(wordUrl);
+            return ResultEntity.successWithoutData();
+        }catch(Exception e){
+            return ResultEntity.failed(e.getMessage());
+        }
+    }
+    @RequestMapping("/save/other/influence/details")
+    public ResultEntity<String> saveOtherInfluenceDetails(@RequestBody OtherInfluenceDetails otherInfluenceDetails){
+        try{
+            enterpriseInformService.saveOtherInfluenceDetails(otherInfluenceDetails);
             return ResultEntity.successWithoutData();
         }catch(Exception e){
             return ResultEntity.failed(e.getMessage());
