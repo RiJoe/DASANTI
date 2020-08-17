@@ -77,4 +77,19 @@
         #{riskLevel}
         )
     </insert>
+    <insert id="saveRiskDeterminationTableForEnterprise" parameterType="com.dasanti.riskmessageinput.entity.RiskDeterminationTable">
+        INSERT INTO risk_determination(
+        enterprise_id,
+        risk_value,
+        risk_level,
+        risk_measure,
+        level_color
+        )values (
+        #{enterpriseId},
+        #{riskValue},
+        #{riskLevel},
+        #{riskMeasure},
+        #{levelColor}
+        )
+    </insert>
 </mapper>

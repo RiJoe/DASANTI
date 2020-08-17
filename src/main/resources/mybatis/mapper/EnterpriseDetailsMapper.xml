@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dasanti.riskmessageinput.mapper.EnterpriseDetailsMapper">
+    <resultMap id="getAllEnterpriseMap" type="com.dasanti.riskmessageinput.entity.EnterpriseDetailsVO">
+        <id column="id" property="id"/>
+        <result column="company_type" property="companyType"/>
+        <result column="company_name" property="companyName"/>
+        <result column="principal" property="principal"/>
+        <result column="address" property="address"/>
+        <result column="informant" property="informant"/>
+        <result column="informant_number" property="informantNumber"/>
+        <result column="lng" property="lng"/>
+        <result column="lat" property="lat"/>
+        <result column="total_number" property="totalNumber"/>
+        <result column="risk_value" property="riskValue"/>
+        <result column="measure" property="measure"/>
+        <result column="major_danger" property="majorDanger"/>
+        <result column="major_risk_name" property="majorRiskName"/>
+        <association property="riskDeterminationTable" javaType="com.dasanti.riskmessageinput.entity.RiskDeterminationTable">
+            <id column="risk_determination_id" property="id"/>
+            <result column="enterprise_id" property="enterpriseId"/>
+            <result column="risk_value" property="riskValue"/>
+            <result column="risk_level" property="riskLevel"/>
+            <result column="risk_measure" property="riskMeasure"/>
+            <result column="level_color" property="levelColor"/>
+        </association>
+    </resultMap>
+    <select id="getAllEnterprise" resultMap="getAllEnterpriseMap">
+        SELECT * FROM enterprise_inform,risk_determination
+        WHERE enterprise_inform.id = risk_determination.enterprise_id
+    </select>
+</mapper>

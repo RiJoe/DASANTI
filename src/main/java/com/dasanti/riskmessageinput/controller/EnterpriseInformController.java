@@ -1,11 +1,9 @@
 package com.dasanti.riskmessageinput.controller;
 
-import com.dasanti.riskmessageinput.entity.EnterpriseInform;
-import com.dasanti.riskmessageinput.entity.InfluenceFactorDetails;
-import com.dasanti.riskmessageinput.entity.OtherInfluenceDetails;
-import com.dasanti.riskmessageinput.entity.WordUrl;
+import com.dasanti.riskmessageinput.entity.*;
 import com.dasanti.riskmessageinput.service.EnterpriseInformService;
 import com.dasanti.riskmessageinput.util.ResultEntity;
+import com.dasanti.riskmessageinput.util.RiskLevelDetermine;
 import com.dasanti.riskmessageinput.util.UploadUtil;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,9 +24,21 @@ public class EnterpriseInformController {
     public ResultEntity<Integer> saveEnterpriseInform(@RequestBody EnterpriseInform enterpriseInform){
         try {
             Integer enterpriseId = enterpriseInformService.saveEnterpriseInform(enterpriseInform);
-            System.out.println(enterpriseId);
+            // 保存风险等级信息
+            try {
+                RiskDeterminationTable riskDeterminationTable = RiskLevelDetermine.riskLevelDetermine(
+                        enterpriseId,
+                        enterpriseInform.getCompanyType(),
+                        enterpriseInform.getRiskValue());
+                if (riskDeterminationTable != null){
+                    enterpriseInformService.saveRiskDeterminationTableForEnterprise(riskDeterminationTable);
+                }
+            } catch (Exception e){
+                e.printStackTrace();
+            }
             return ResultEntity.successWithData(enterpriseId);
         }catch(Exception e){
+            e.printStackTrace();
             return ResultEntity.failed(e.getMessage());
         }
 
@@ -68,6 +78,7 @@ public class EnterpriseInformController {
             }
 
         } catch (Exception e) {
+            e.printStackTrace();
             return ResultEntity.failed(e.getMessage());
         }
         //System.out.println(influenceFactorDetailsList);
@@ -80,15 +91,18 @@ public class EnterpriseInformController {
             enterpriseInformService.saveWordUrl(wordUrl);
             return ResultEntity.successWithoutData();
         }catch(Exception e){
+            e.printStackTrace();
             return ResultEntity.failed(e.getMessage());
         }
     }
+    // 保存其他模板类型信息
     @RequestMapping("/save/other/influence/details")
     public ResultEntity<String> saveOtherInfluenceDetails(@RequestBody OtherInfluenceDetails otherInfluenceDetails){
         try{
             enterpriseInformService.saveOtherInfluenceDetails(otherInfluenceDetails);
             return ResultEntity.successWithoutData();
         }catch(Exception e){
+            e.printStackTrace();
             return ResultEntity.failed(e.getMessage());
         }
     }

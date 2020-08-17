@@ -1,9 +1,6 @@
 package com.dasanti.riskmessageinput.mapper;
 
-import com.dasanti.riskmessageinput.entity.EnterpriseInform;
-import com.dasanti.riskmessageinput.entity.InfluenceFactorDetails;
-import com.dasanti.riskmessageinput.entity.OtherInfluenceDetails;
-import com.dasanti.riskmessageinput.entity.WordUrl;
+import com.dasanti.riskmessageinput.entity.*;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
@@ -15,4 +12,6 @@ public interface EnterpriseInformMapper {
     void saveWordUrl(WordUrl wordUrl);
 
     void saveOtherInfluenceDetails(OtherInfluenceDetails otherInfluenceDetails);
+
+    void saveRiskDeterminationTableForEnterprise(RiskDeterminationTable riskDeterminationTable);
 }
