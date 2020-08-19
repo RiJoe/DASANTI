@@ -1,6 +1,7 @@
 package com.dasanti.riskmessageinput.service.serviceImpl;
 
 import com.dasanti.riskmessageinput.entity.EnterpriseDetailsVO;
+import com.dasanti.riskmessageinput.entity.EnterpriseRiskCountVO;
 import com.dasanti.riskmessageinput.mapper.EnterpriseDetailsMapper;
 import com.dasanti.riskmessageinput.service.EnterpriseDetailsService;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,11 @@ import java.util.List;
 public class EnterpriseDetailsServiceImpl implements EnterpriseDetailsService {
     @Resource
     private EnterpriseDetailsMapper enterpriseDetailsMapper;
+
+    @Override
+    public List<EnterpriseRiskCountVO> getEnterpriseRiskCount() {
+        return enterpriseDetailsMapper.getEnterpriseRiskCount();
+    }
 
     @Override
     public List<EnterpriseDetailsVO> getAllEnterprise() {

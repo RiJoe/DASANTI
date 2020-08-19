@@ -83,13 +83,15 @@
         risk_value,
         risk_level,
         risk_measure,
-        level_color
+        level_color,
+        icon_url
         )values (
         #{enterpriseId},
         #{riskValue},
         #{riskLevel},
         #{riskMeasure},
-        #{levelColor}
+        #{levelColor},
+        #{iconURL}
         )
     </insert>
 </mapper>

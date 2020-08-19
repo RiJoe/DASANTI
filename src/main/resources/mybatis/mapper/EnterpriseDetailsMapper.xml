@@ -23,10 +23,20 @@
             <result column="risk_level" property="riskLevel"/>
             <result column="risk_measure" property="riskMeasure"/>
             <result column="level_color" property="levelColor"/>
+            <result column="icon_url" property="iconUrl"/>
         </association>
     </resultMap>
     <select id="getAllEnterprise" resultMap="getAllEnterpriseMap">
         SELECT * FROM enterprise_inform,risk_determination
         WHERE enterprise_inform.id = risk_determination.enterprise_id
+    </select>
+    <resultMap id="getEnterpriseRiskCountMap" type="com.dasanti.riskmessageinput.entity.EnterpriseRiskCountVO">
+        <result column="risk_level" property="riskLevel"/>
+        <result column="count(*)" property="count"/>
+    </resultMap>
+    <select id="getEnterpriseRiskCount" resultMap="getEnterpriseRiskCountMap">
+        SELECT risk_level, COUNT(*)
+        FROM risk_determination
+        GROUP BY risk_level
     </select>
 </mapper>

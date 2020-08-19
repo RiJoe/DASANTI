@@ -11,7 +11,7 @@
  Target Server Version : 50731
  File Encoding         : 65001
 
- Date: 14/08/2020 17:47:33
+ Date: 19/08/2020 10:25:15
 */
 
 SET NAMES utf8mb4;
@@ -171,12 +171,14 @@ CREATE TABLE `enterprise_inform`  (
   `major_danger` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `major_risk_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 113 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 121 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of enterprise_inform
 -- ----------------------------
-INSERT INTO `enterprise_inform` VALUES (112, 64, '深圳大三体安全科技有限公司', 'Martin', '深圳中海信创新产业城', 'joe', '13874513545', '', '', 500, 350, '200', '硫酸', '硫酸');
+INSERT INTO `enterprise_inform` VALUES (118, 64, '深圳大三体安全科技有限公司', 'mark', '深圳中海信创新产业城', 'joe', '13035810522', '', '', 500, 600, '200', '', '');
+INSERT INTO `enterprise_inform` VALUES (119, 65, 'Google', 'mark', '深圳北站', 'joe', '13035810522', '', '', 500, 600, '200', '', '');
+INSERT INTO `enterprise_inform` VALUES (120, 66, '华为', 'Joe', '深圳北站', 'joe', '13035810522', '', '', 500, 400, '200', '', '');
 
 -- ----------------------------
 -- Table structure for factor_score
@@ -244,21 +246,47 @@ CREATE TABLE `influence_factor_details`  (
   `score` int(11) NULL DEFAULT NULL,
   `photo` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 95 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 173 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of influence_factor_details
 -- ----------------------------
-INSERT INTO `influence_factor_details` VALUES (85, 112, 1, '一级', 10, 'http://127.0.0.1:7000/uploadFile/1597396562179202003102052080556.jpg');
-INSERT INTO `influence_factor_details` VALUES (86, 112, 1, '压力容器', 7, '');
-INSERT INTO `influence_factor_details` VALUES (87, 112, 1, '烤箱', 3, '');
-INSERT INTO `influence_factor_details` VALUES (88, 112, 1, '危险化学品名称（闪点）、最大存量、MSDS', 5, '');
-INSERT INTO `influence_factor_details` VALUES (89, 112, 1, '有限空间', 5, 'http://127.0.0.1:7000/uploadFile/1597396592873dingdangmao.jpg');
-INSERT INTO `influence_factor_details` VALUES (90, 112, 1, '有预案无演练', 1, '');
-INSERT INTO `influence_factor_details` VALUES (91, 112, 2, '达标但记录不完善', 2, '');
-INSERT INTO `influence_factor_details` VALUES (92, 112, 2, '有自查自报，但未上传', 2, '');
-INSERT INTO `influence_factor_details` VALUES (93, 112, 2, '有三级培训但不完善', 2, '');
-INSERT INTO `influence_factor_details` VALUES (94, 112, 3, '100～300', 7, '');
+INSERT INTO `influence_factor_details` VALUES (137, 118, 1, '二级', 7, 'http://127.0.0.1:7000/uploadFile/1597651915199003.jpg');
+INSERT INTO `influence_factor_details` VALUES (138, 118, 1, '其他（电梯）', 4, '');
+INSERT INTO `influence_factor_details` VALUES (139, 118, 1, '砂光机', 5, '');
+INSERT INTO `influence_factor_details` VALUES (140, 118, 1, '冲剪压机械', 5, '');
+INSERT INTO `influence_factor_details` VALUES (141, 118, 1, '危险化学品名称（闪点）、最大存量、MSDS', 5, '');
+INSERT INTO `influence_factor_details` VALUES (142, 118, 1, '有限空间', 5, '');
+INSERT INTO `influence_factor_details` VALUES (143, 118, 1, '喷漆喷油', 5, '');
+INSERT INTO `influence_factor_details` VALUES (144, 118, 1, '有预案有演练', -2, 'http://127.0.0.1:7000/uploadFile/1597651945404dingdangmao.jpg,http://127.0.0.1:7000/uploadFile/1597651939688003.jpg');
+INSERT INTO `influence_factor_details` VALUES (145, 118, 2, '达标但记录不完善', 2, '');
+INSERT INTO `influence_factor_details` VALUES (146, 118, 2, '有自查自报，但未上传', 2, '');
+INSERT INTO `influence_factor_details` VALUES (147, 118, 2, '无三级培训', 5, '');
+INSERT INTO `influence_factor_details` VALUES (148, 118, 3, '100～300', 7, '');
+INSERT INTO `influence_factor_details` VALUES (149, 119, 1, '基本满足', 2, '');
+INSERT INTO `influence_factor_details` VALUES (150, 119, 1, '框架', 1, '');
+INSERT INTO `influence_factor_details` VALUES (151, 119, 1, '可燃', 4, '');
+INSERT INTO `influence_factor_details` VALUES (152, 119, 1, '较少', 2, '');
+INSERT INTO `influence_factor_details` VALUES (153, 119, 1, '大部分占用', 4, '');
+INSERT INTO `influence_factor_details` VALUES (154, 119, 1, '有室内外消防栓系统', 1, '');
+INSERT INTO `influence_factor_details` VALUES (155, 119, 1, '无消防救援队', 4, '');
+INSERT INTO `influence_factor_details` VALUES (156, 119, 2, '人员证书不全', 2, '');
+INSERT INTO `influence_factor_details` VALUES (157, 119, 2, '安全防护设备设施配备不到位等', 4, '');
+INSERT INTO `influence_factor_details` VALUES (158, 119, 2, '无电动自行车集中充电站', 4, '');
+INSERT INTO `influence_factor_details` VALUES (159, 119, 2, '“三小”场所存在“三合一”现象', 4, '');
+INSERT INTO `influence_factor_details` VALUES (160, 119, 2, '出租屋有人员管理（门禁、人员登记），且有安全宣传栏', 1, '');
+INSERT INTO `influence_factor_details` VALUES (161, 119, 3, '高：P≧20000人/km2', 4, '');
+INSERT INTO `influence_factor_details` VALUES (162, 119, 3, '外来人员 75%-50%', 6, '');
+INSERT INTO `influence_factor_details` VALUES (163, 120, 1, '大于100米小于等于150米', 6, '');
+INSERT INTO `influence_factor_details` VALUES (164, 120, 1, '宿舍、公寓建筑', 3, '');
+INSERT INTO `influence_factor_details` VALUES (165, 120, 1, '可燃', 6, '');
+INSERT INTO `influence_factor_details` VALUES (166, 120, 1, '多', 6, '');
+INSERT INTO `influence_factor_details` VALUES (167, 120, 1, '无预案无演练', 3, '');
+INSERT INTO `influence_factor_details` VALUES (168, 120, 2, '人员证书不全，且员工未经三级教育培训上岗', 5, '');
+INSERT INTO `influence_factor_details` VALUES (169, 120, 2, '安全防护设备设施配备不到位等', 6, '');
+INSERT INTO `influence_factor_details` VALUES (170, 120, 2, '作业环境不规范，无隐患自查自报及整改制度等', 6, '');
+INSERT INTO `influence_factor_details` VALUES (171, 120, 2, '未定期进行安全宣传', 2, '');
+INSERT INTO `influence_factor_details` VALUES (172, 120, 3, '高', 6, '');
 
 -- ----------------------------
 -- Table structure for input_message
@@ -274,7 +302,7 @@ CREATE TABLE `input_message`  (
   `table_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `photo` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 251 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 288 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of input_message
@@ -367,6 +395,43 @@ INSERT INTO `input_message` VALUES (247, 65, 3, '人员组成情况', '外来人
 INSERT INTO `input_message` VALUES (248, 65, 3, '人员组成情况', '外来人员 75%-50%', 6, '2020年观湖街道城中村点位风险评估表', '外来人员 75%-50%图片');
 INSERT INTO `input_message` VALUES (249, 65, 3, '人员组成情况', '外来人员 50%-25%', 4, '2020年观湖街道城中村点位风险评估表', '外来人员 50%-25%图片');
 INSERT INTO `input_message` VALUES (250, 65, 3, '人员组成情况', '外来人员 25%以下', 2, '2020年观湖街道城中村点位风险评估表', '外来人员 25%以下图片');
+INSERT INTO `input_message` VALUES (251, 66, 1, '建筑高度', '大于100米小于等于150米', 6, '2020年观湖街道超高层建筑点位风险评估表', '大于100米小于等于150米图片');
+INSERT INTO `input_message` VALUES (252, 66, 1, '建筑高度', '150米~250米以上', 8, '2020年观湖街道超高层建筑点位风险评估表', '150米~250米以上图片');
+INSERT INTO `input_message` VALUES (253, 66, 1, '建筑高度', '250米以上', 10, '2020年观湖街道超高层建筑点位风险评估表', '250米以上图片');
+INSERT INTO `input_message` VALUES (254, 66, 1, '建筑面积', '大于10000m2', 8, '2020年观湖街道超高层建筑点位风险评估表', '大于10000m2图片');
+INSERT INTO `input_message` VALUES (255, 66, 1, '建筑面积', '小于等于10000m2', 3, '2020年观湖街道超高层建筑点位风险评估表', '小于等于10000m2图片');
+INSERT INTO `input_message` VALUES (256, 66, 1, '建筑用途', '住宅（包括商业服务网点的住宅建筑）', 3, '2020年观湖街道超高层建筑点位风险评估表', '住宅（包括商业服务网点的住宅建筑）图片');
+INSERT INTO `input_message` VALUES (257, 66, 1, '建筑用途', '宿舍、公寓建筑', 3, '2020年观湖街道超高层建筑点位风险评估表', '宿舍、公寓建筑图片');
+INSERT INTO `input_message` VALUES (258, 66, 1, '建筑用途', '多功能组合建筑（三种功能及以上）', 5, '2020年观湖街道超高层建筑点位风险评估表', '多功能组合建筑（三种功能及以上）图片');
+INSERT INTO `input_message` VALUES (259, 66, 1, '建筑用途', '医疗建筑、重要公共建筑', 7, '2020年观湖街道超高层建筑点位风险评估表', '医疗建筑、重要公共建筑图片');
+INSERT INTO `input_message` VALUES (260, 66, 1, '建筑用途', '省级以上的广播电视和防灾指挥调度建筑、网局级和省级电力调度建筑', 8, '2020年观湖街道超高层建筑点位风险评估表', '省级以上的广播电视和防灾指挥调度建筑、网局级和省级电力调度建筑图片');
+INSERT INTO `input_message` VALUES (261, 66, 1, '可燃物燃烧性能', '易燃', 10, '2020年观湖街道超高层建筑点位风险评估表', '易燃图片');
+INSERT INTO `input_message` VALUES (262, 66, 1, '可燃物燃烧性能', '可燃', 6, '2020年观湖街道超高层建筑点位风险评估表', '可燃图片');
+INSERT INTO `input_message` VALUES (263, 66, 1, '可燃物燃烧性能', '难燃', 3, '2020年观湖街道超高层建筑点位风险评估表', '难燃图片');
+INSERT INTO `input_message` VALUES (264, 66, 1, '可燃物燃烧性能', '不燃', 1, '2020年观湖街道超高层建筑点位风险评估表', '不燃图片');
+INSERT INTO `input_message` VALUES (265, 66, 1, '可燃物数量', '极多', 10, '2020年观湖街道超高层建筑点位风险评估表', '极多图片');
+INSERT INTO `input_message` VALUES (266, 66, 1, '可燃物数量', '多', 6, '2020年观湖街道超高层建筑点位风险评估表', '多图片');
+INSERT INTO `input_message` VALUES (267, 66, 1, '可燃物数量', '较少', 3, '2020年观湖街道超高层建筑点位风险评估表', '较少图片');
+INSERT INTO `input_message` VALUES (268, 66, 1, '可燃物数量', '少', 1, '2020年观湖街道超高层建筑点位风险评估表', '少图片');
+INSERT INTO `input_message` VALUES (269, 66, 1, '应急反应', '无预案无演练', 3, '2020年观湖街道超高层建筑点位风险评估表', '有预案无演练图片');
+INSERT INTO `input_message` VALUES (270, 66, 1, '应急反应', '有预案无演练', 1, '2020年观湖街道超高层建筑点位风险评估表', '无预案无演练图片');
+INSERT INTO `input_message` VALUES (271, 66, 1, '应急反应', '有预案有演练', -2, '2020年观湖街道超高层建筑点位风险评估表', '有预案有演练图片');
+INSERT INTO `input_message` VALUES (272, 66, 2, '人的因素', '人员证书不全，且员工未经三级教育培训上岗', 5, '2020年观湖街道超高层建筑点位风险评估表', '人员证书不全，且员工未经三级教育培训上岗图片');
+INSERT INTO `input_message` VALUES (273, 66, 2, '人的因素', '人员证书不全，或员工三级教育不完善', 2, '2020年观湖街道超高层建筑点位风险评估表', '人员证书不全，或员工三级教育不完善图片');
+INSERT INTO `input_message` VALUES (274, 66, 2, '人的因素', '人员证书齐全，且三级教育记录完善', 1, '2020年观湖街道超高层建筑点位风险评估表', '人员证书齐全，且三级教育记录完善图片');
+INSERT INTO `input_message` VALUES (275, 66, 2, '物的因素', '安全防护设备设施配备不到位等', 6, '2020年观湖街道超高层建筑点位风险评估表', '安全防护设备设施配备不到位等图片');
+INSERT INTO `input_message` VALUES (276, 66, 2, '物的因素', '无不合格情况', 1, '2020年观湖街道超高层建筑点位风险评估表', '无不合格情况图片');
+INSERT INTO `input_message` VALUES (277, 66, 2, '环境因素', '作业环境不规范，无隐患自查自报及整改制度等', 6, '2020年观湖街道超高层建筑点位风险评估表', '作业环境不规范，无隐患自查自报及整改制度等图片');
+INSERT INTO `input_message` VALUES (278, 66, 2, '环境因素', '无不合格情况', 1, '2020年观湖街道超高层建筑点位风险评估表', '无不合格情况图片');
+INSERT INTO `input_message` VALUES (279, 66, 2, '管理因素', '安全管理制度不健全', 5, '2020年观湖街道超高层建筑点位风险评估表', '安全管理制度不健全图片');
+INSERT INTO `input_message` VALUES (280, 66, 2, '管理因素', '安全管理制度健全，但记录不完善', 2, '2020年观湖街道超高层建筑点位风险评估表', '安全管理制度健全，但记录不完善图片');
+INSERT INTO `input_message` VALUES (281, 66, 2, '管理因素', '安全管理制度健全，且有效运行', 1, '2020年观湖街道超高层建筑点位风险评估表', '安全管理制度健全，且有效运行图片');
+INSERT INTO `input_message` VALUES (282, 66, 2, '宣传教育', '未定期进行安全宣传', 2, '2020年观湖街道超高层建筑点位风险评估表', '未定期进行安全宣传图片');
+INSERT INTO `input_message` VALUES (283, 66, 2, '宣传教育', '定期进行安全宣传', 1, '2020年观湖街道超高层建筑点位风险评估表', '定期进行安全宣传图片');
+INSERT INTO `input_message` VALUES (284, 66, 3, '人员密度', '极高', 10, '2020年观湖街道超高层建筑点位风险评估表', '极高图片');
+INSERT INTO `input_message` VALUES (285, 66, 3, '人员密度', '高', 6, '2020年观湖街道超高层建筑点位风险评估表', '高图片');
+INSERT INTO `input_message` VALUES (286, 66, 3, '人员密度', '中', 3, '2020年观湖街道超高层建筑点位风险评估表', '中图片');
+INSERT INTO `input_message` VALUES (287, 66, 3, '人员密度', '低', 1, '2020年观湖街道超高层建筑点位风险评估表', '低图片');
 
 -- ----------------------------
 -- Table structure for input_table
@@ -376,13 +441,14 @@ CREATE TABLE `input_table`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `table_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 66 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 67 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of input_table
 -- ----------------------------
 INSERT INTO `input_table` VALUES (64, '2020年观湖街道工业企业点位风险评估表');
 INSERT INTO `input_table` VALUES (65, '2020年观湖街道城中村点位风险评估表');
+INSERT INTO `input_table` VALUES (66, '2020年观湖街道超高层建筑点位风险评估表');
 
 -- ----------------------------
 -- Table structure for input_table_details
@@ -395,7 +461,7 @@ CREATE TABLE `input_table_details`  (
   `category_id` int(11) NULL DEFAULT NULL,
   `table_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 58 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 68 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of input_table_details
@@ -424,6 +490,16 @@ INSERT INTO `input_table_details` VALUES (54, 65, '管理因素（1）', 2, '202
 INSERT INTO `input_table_details` VALUES (55, 65, '管理因素（2）', 2, '2020年观湖街道城中村点位风险评估表');
 INSERT INTO `input_table_details` VALUES (56, 65, '人员密度', 3, '2020年观湖街道城中村点位风险评估表');
 INSERT INTO `input_table_details` VALUES (57, 65, '人员组成情况', 3, '2020年观湖街道城中村点位风险评估表');
+INSERT INTO `input_table_details` VALUES (58, 66, '建筑高度', 1, '2020年观湖街道超高层建筑点位风险评估表');
+INSERT INTO `input_table_details` VALUES (59, 66, '建筑用途', 1, '2020年观湖街道超高层建筑点位风险评估表');
+INSERT INTO `input_table_details` VALUES (60, 66, '可燃物燃烧性能', 1, '2020年观湖街道超高层建筑点位风险评估表');
+INSERT INTO `input_table_details` VALUES (61, 66, '可燃物数量', 1, '2020年观湖街道超高层建筑点位风险评估表');
+INSERT INTO `input_table_details` VALUES (62, 66, '应急反应', 1, '2020年观湖街道超高层建筑点位风险评估表');
+INSERT INTO `input_table_details` VALUES (63, 66, '人的因素', 2, '2020年观湖街道超高层建筑点位风险评估表');
+INSERT INTO `input_table_details` VALUES (64, 66, '物的因素', 2, '2020年观湖街道超高层建筑点位风险评估表');
+INSERT INTO `input_table_details` VALUES (65, 66, '环境因素', 2, '2020年观湖街道超高层建筑点位风险评估表');
+INSERT INTO `input_table_details` VALUES (66, 66, '宣传教育', 2, '2020年观湖街道超高层建筑点位风险评估表');
+INSERT INTO `input_table_details` VALUES (67, 66, '人员密度', 3, '2020年观湖街道超高层建筑点位风险评估表');
 
 -- ----------------------------
 -- Table structure for other_influence
@@ -440,7 +516,29 @@ CREATE TABLE `other_influence`  (
   `judge_r` int(11) NULL DEFAULT NULL,
   `risk_level` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for risk_determination
+-- ----------------------------
+DROP TABLE IF EXISTS `risk_determination`;
+CREATE TABLE `risk_determination`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `enterprise_id` int(11) NULL DEFAULT NULL,
+  `risk_value` int(11) NULL DEFAULT NULL,
+  `risk_level` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `risk_measure` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `level_color` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `icon_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of risk_determination
+-- ----------------------------
+INSERT INTO `risk_determination` VALUES (1, 118, 600, '一般风险', '需要整改，整改、检查', 'yellow', 'http://localhost:7000/uploadFile/yellow1.png');
+INSERT INTO `risk_determination` VALUES (2, 119, 600, '低风险', '需要注意，培训、检查', 'blue', 'http://localhost:7000/uploadFile/blue1.png');
+INSERT INTO `risk_determination` VALUES (3, 120, 400, '重大风险', '不可容许、停工', 'red', 'http://localhost:7000/uploadFile/red1.png');
 
 -- ----------------------------
 -- Table structure for user
@@ -467,11 +565,13 @@ CREATE TABLE `word_details`  (
   `enterprise_id` int(11) NULL DEFAULT NULL,
   `word_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of word_details
 -- ----------------------------
-INSERT INTO `word_details` VALUES (7, 112, 'http://127.0.0.1:7000/uploadFile/1597396634051000观湖企业风险评估.docx');
+INSERT INTO `word_details` VALUES (11, 118, 'http://127.0.0.1:7000/uploadFile/1597651973081000观湖企业风险评估.docx');
+INSERT INTO `word_details` VALUES (12, 119, 'http://127.0.0.1:7000/uploadFile/159765215572211、151、231 深圳市曼园实业有限公司(2020.4.30).docx');
+INSERT INTO `word_details` VALUES (13, 120, 'http://127.0.0.1:7000/uploadFile/1597652230188000观湖企业风险评估.docx');
 
 SET FOREIGN_KEY_CHECKS = 1;

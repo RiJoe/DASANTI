@@ -7,11 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RiskDeterminationTable {
-    private Integer enterpriseId;
-    private Integer riskValue;
+public class EnterpriseRiskCountVO {
     private String riskLevel;
-    private String riskMeasure;
-    private String levelColor;
-    private String iconUrl;
+    private Integer count;
 }
