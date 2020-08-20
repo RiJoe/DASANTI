@@ -1,6 +1,7 @@
 package com.dasanti.riskmessageinput.mapper;
 
 import com.dasanti.riskmessageinput.entity.EnterpriseDetailsVO;
+import com.dasanti.riskmessageinput.entity.EnterpriseInform;
 import com.dasanti.riskmessageinput.entity.EnterpriseRiskCountVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -12,4 +13,8 @@ public interface EnterpriseDetailsMapper {
     List<EnterpriseDetailsVO> getAllEnterprise();
 
     List<EnterpriseRiskCountVO> getEnterpriseRiskCount();
+
+    List<Integer> getAllEnterpriseIdByRiskLevel(String riskLevel);
+
+    List<EnterpriseInform> getAllEnterpriseByEnterpriseId(List<Integer> enterpriseIdList);
 }

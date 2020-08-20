@@ -4,9 +4,12 @@ import cn.hutool.http.HttpUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.dasanti.riskmessageinput.entity.EnterpriseDetailsVO;
 import com.dasanti.riskmessageinput.entity.EnterpriseRiskCountVO;
+import com.dasanti.riskmessageinput.entity.page.PageResult;
 import com.dasanti.riskmessageinput.service.EnterpriseDetailsService;
 import com.dasanti.riskmessageinput.util.ResultEntity;
+import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -17,6 +20,19 @@ import java.util.List;
 public class EnterpriseDetailsController {
     @Resource
     private EnterpriseDetailsService enterpriseDetailsService;
+    // 相关等级分页查询
+    @RequestMapping("/get/all/risk/enterprise")
+    public ResultEntity getAllRiskEnterpriseForPage(@RequestParam Integer pageNum, @RequestParam Integer pageSize, @RequestParam String riskLevel){
+        try{
+            PageResult pageResult = enterpriseDetailsService.getAllRiskEnterpriseForPage(pageNum,pageSize,riskLevel);
+            return ResultEntity.successWithData(pageResult);
+        }catch(Exception e){
+            e.printStackTrace();
+            return ResultEntity.failed(e.getMessage());
+        }
+
+    }
+
     // 获取企业各风险等级数量
     @RequestMapping("/get/enterprise/risk/count")
     public ResultEntity<List<EnterpriseRiskCountVO>> getEnterpriseRiskCount(){
@@ -38,7 +54,6 @@ public class EnterpriseDetailsController {
                     paramMap.put("ak","wFQlNo1lSDLEx8RV6vehHiwLKlx23GNg");
                     String result = HttpUtil.get("http://api.map.baidu.com/geocoding/v3",paramMap);
                     JSONObject jsonObject = JSONObject.parseObject(result);
-                    System.out.println(jsonObject);
                     if(jsonObject.getInteger("status") == 0){
                         enterpriseDetailsVOList.get(i).setLng(jsonObject.getJSONObject("result").getJSONObject("location").getString("lng"));
                         enterpriseDetailsVOList.get(i).setLat(jsonObject.getJSONObject("result").getJSONObject("location").getString("lat"));

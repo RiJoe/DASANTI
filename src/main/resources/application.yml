@@ -25,3 +25,10 @@ logging:
   level:
     com.dasanti.riskmessageinput.mapper: debug
     com.dasanti.riskmessageinput.test: debug
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  page-size-zero: true
+  params: count=coutnSql

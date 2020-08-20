@@ -39,4 +39,42 @@
         FROM risk_determination
         GROUP BY risk_level
     </select>
+    <select id="getAllEnterpriseIdByRiskLevel" resultType="java.lang.Integer" parameterType="java.lang.String">
+        SELECT
+        enterprise_id
+        FROM
+        risk_determination
+        WHERE
+        risk_level = #{riskLevel}
+    </select>
+    <resultMap id="getAllEnterpriseByEnterpriseIdMap" type="com.dasanti.riskmessageinput.entity.EnterpriseInform">
+    <id column="id" property="id"/>
+    <result column="company_type" property="companyType"/>
+    <result column="company_name" property="companyName"/>
+    <result column="principal" property="principal"/>
+    <result column="address" property="address"/>
+    <result column="informant" property="informant"/>
+    <result column="informant_number" property="informantNumber"/>
+    <result column="lng" property="lng"/>
+    <result column="lat" property="lat"/>
+    <result column="total_number" property="totalNumber"/>
+    <result column="risk_value" property="riskValue"/>
+    <result column="measure" property="measure"/>
+    <result column="major_danger" property="majorDanger"/>
+    <result column="major_risk_name" property="majorRiskName"/>
+    </resultMap>
+    <select id="getAllEnterpriseByEnterpriseId" resultMap="getAllEnterpriseByEnterpriseIdMap">
+        SELECT
+         *
+        FROM
+        enterprise_inform
+        WHERE
+        enterprise_inform.id
+        IN
+        <if test="enterpriseIdList !=null">
+            <foreach collection="list" item="enterpriseIdList" index="index" open="(" separator="," close=")">
+                #{enterpriseIdList}
+            </foreach>
+        </if>
+    </select>
 </mapper>
