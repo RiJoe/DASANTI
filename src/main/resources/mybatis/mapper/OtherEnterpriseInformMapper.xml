@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dasanti.riskmessageinput.mapper.OtherEnterpriseInformMapper">
+    <insert id="saveOtherEnterpriseInform" parameterType="com.dasanti.riskmessageinput.entity.OtherEnterpriseInform" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO
+        other_enterprise_inform (
+        other_company_name,
+        other_principal,
+        other_number,
+        other_lng,
+        other_lat
+        ) VALUES (
+        #{otherCompanyName},
+        #{otherPrincipal},
+        #{otherNumber},
+        #{otherLng},
+        #{otherLat}
+        )
+    </insert>
+    <select id="getOtherEnterpriseCount" resultType="java.lang.Integer">
+        SELECT
+        count(*)
+        FROM
+        other_enterprise_inform
+    </select>
+    <resultMap id="getAllOtherEnterpriseMap" type="com.dasanti.riskmessageinput.entity.OtherEnterpriseInform">
+        <id column="id" property="id"/>
+        <result column="other_company_name" property="otherCompanyName"/>
+        <result column="other_principal" property="otherPrincipal"/>
+        <result column="other_number" property="otherNumber"/>
+        <result column="other_lng" property="otherLng"/>
+        <result column="other_lat" property="otherLat"/>
+    </resultMap>
+    <select id="getAllOtherEnterprise" resultMap="getAllOtherEnterpriseMap">
+        select
+        id,
+        other_company_name,
+        other_principal,
+        other_number,
+        other_lng,
+        other_lat
+        FROM
+        other_enterprise_inform
+    </select>
+    <resultMap id="getOtherEnterpriseDetailsByIdMap" type="com.dasanti.riskmessageinput.entity.OtherInfluenceDetails">
+        <result column="valuation_category" property="valuationCategory"/>
+        <result column="major_risk_category" property="majorRiskCategory"/>
+        <result column="judge_l" property="judgeL"/>
+        <result column="judge_e" property="judgeE"/>
+        <result column="judge_c" property="judgeC"/>
+        <result column="judge_r" property="judgeR"/>
+        <result column="risk_level" property="riskLevel"/>
+    </resultMap>
+    <select id="getOtherEnterpriseDetailsById" parameterType="java.lang.Integer" resultMap="getOtherEnterpriseDetailsByIdMap">
+        SELECT
+        *
+        FROM
+        other_influence
+        WHERE
+        other_enterprise_id = #{ otherEnterpriseId}
+    </select>
+    <insert id="saveOtherWordUrl" parameterType="com.dasanti.riskmessageinput.entity.OtherWordUrl">
+        INSERT INTO
+        other_word_details (
+        other_enterprise_id,
+        other_word_url
+        ) VALUES (
+        #{otherEnterpriseId},
+        #{otherWordUrl}
+        )
+    </insert>
+    <resultMap id="getOtherWordUrlMap" type="java.lang.String">
+        <result column="other_word_url" property="otherWordUrl"/>
+    </resultMap>
+    <select id="getOtherWordUrl" parameterType="java.lang.Integer" resultMap="getOtherWordUrlMap">
+        SELECT
+        other_word_url
+        FROM
+        other_word_details
+        WHERE
+        other_enterprise_id = #{otherEnterpriseId}
+    </select>
+    <resultMap id="getOtherEnterpriseCountVOByIdMap" type="com.dasanti.riskmessageinput.entity.OtherEnterpriseCountVO">
+        <result column="count(*)" property="count"/>
+        <result column="risk_level" property="riskLevel"/>
+    </resultMap>
+    <select id="getOtherEnterpriseCountVOById" parameterType="java.lang.Integer" resultMap="getOtherEnterpriseCountVOByIdMap">
+        SELECT
+        COUNT(*),
+        risk_level
+        FROM
+        other_influence
+        WHERE
+        other_enterprise_id = #{otherEnterpriseId}
+        GROUP BY
+        risk_level
+    </select>
+</mapper>

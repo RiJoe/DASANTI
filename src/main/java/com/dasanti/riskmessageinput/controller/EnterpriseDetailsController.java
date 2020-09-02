@@ -2,12 +2,10 @@ package com.dasanti.riskmessageinput.controller;
 
 import cn.hutool.http.HttpUtil;
 import com.alibaba.fastjson.JSONObject;
-import com.dasanti.riskmessageinput.entity.EnterpriseDetailsVO;
-import com.dasanti.riskmessageinput.entity.EnterpriseRiskCountVO;
+import com.dasanti.riskmessageinput.entity.*;
 import com.dasanti.riskmessageinput.entity.page.PageResult;
 import com.dasanti.riskmessageinput.service.EnterpriseDetailsService;
 import com.dasanti.riskmessageinput.util.ResultEntity;
-import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +18,40 @@ import java.util.List;
 public class EnterpriseDetailsController {
     @Resource
     private EnterpriseDetailsService enterpriseDetailsService;
+    // 获取word文档地址
+    @RequestMapping("/get/word/url")
+    public ResultEntity<String> getWordUrl(@RequestParam Integer enterpriseId){
+        try{
+            String wordUrl = enterpriseDetailsService.getWordUrlById(enterpriseId);
+            return ResultEntity.successWithData(wordUrl);
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResultEntity.failed(e.getMessage());
+        }
+    }
+    // 获取相应的table风险判定信息等
+    @RequestMapping("/get/table/risk/details/by/id")
+    public ResultEntity<TableRiskDetailsVO> getTableRiskDetailsByTableId(@RequestParam Integer tableId){
+        try{
+            TableRiskDetailsVO tableRiskDetailsVO = enterpriseDetailsService.getTableRiskDetailsByTableId(tableId);
+            return ResultEntity.successWithData(tableRiskDetailsVO);
+        }catch(Exception e){
+            e.printStackTrace();
+            return ResultEntity.failed(e.getMessage());
+        }
+    }
+    // 获取table 进行前端展示
+    @RequestMapping("/get/table/details/by/id")
+    public ResultEntity<List<TableDetailsVO>> getTableDetailsById(@RequestParam Integer tableId,@RequestParam Integer enterpriseId) {
+        try {
+            List<TableDetailsVO> tableDetailsVOList = enterpriseDetailsService.getTableDetailsById(tableId,enterpriseId);
+            return ResultEntity.successWithData(tableDetailsVOList);
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResultEntity.failed(e.getMessage());
+        }
+
+    }
     // 相关等级分页查询
     @RequestMapping("/get/all/risk/enterprise")
     public ResultEntity getAllRiskEnterpriseForPage(@RequestParam Integer pageNum, @RequestParam Integer pageSize, @RequestParam String riskLevel){

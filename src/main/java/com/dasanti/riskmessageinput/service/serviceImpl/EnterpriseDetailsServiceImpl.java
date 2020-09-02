@@ -1,8 +1,6 @@
 package com.dasanti.riskmessageinput.service.serviceImpl;
 
-import com.dasanti.riskmessageinput.entity.EnterpriseDetailsVO;
-import com.dasanti.riskmessageinput.entity.EnterpriseInform;
-import com.dasanti.riskmessageinput.entity.EnterpriseRiskCountVO;
+import com.dasanti.riskmessageinput.entity.*;
 import com.dasanti.riskmessageinput.entity.page.PageResult;
 import com.dasanti.riskmessageinput.mapper.EnterpriseDetailsMapper;
 import com.dasanti.riskmessageinput.service.EnterpriseDetailsService;
@@ -45,12 +43,40 @@ public class EnterpriseDetailsServiceImpl implements EnterpriseDetailsService {
             pageResult.setTotalSize(pageInfo.getTotal());
             pageResult.setTotalPages(pageInfo.getSize());
             pageResult.setContent(pageInfo.getList());
-            return pageResult;
         }else {
             pageResult.setPageNum(1);
             pageResult.setPageSize(0);
             pageResult.setTotalPages(0);
-            return pageResult;
         }
+        return pageResult;
+    }
+
+    @Override
+    public List<TableDetailsVO> getTableDetailsById(Integer tableId,Integer enterpriseId) {
+        List<TableDetailsVO> tableDetailsVOList = enterpriseDetailsMapper.getTableDetailsById(tableId);
+        List<InfluenceFactorDetails> influenceFactorDetailsList = enterpriseDetailsMapper.getInfluenceFactorDetailByEnterpriseId(enterpriseId);
+        for(int i=0;i<tableDetailsVOList.size();i++){
+            for(int j = 0;j<influenceFactorDetailsList.size();j++){
+                if(tableDetailsVOList.get(i).getInfluenceFactor().equals(influenceFactorDetailsList.get(j).getInfluenceFactor()) &&
+                        tableDetailsVOList.get(i).getDetermineFactor().equals(influenceFactorDetailsList.get(j).getDetermineFactor())){
+                    tableDetailsVOList.get(i).setCheck("√");
+                    tableDetailsVOList.get(i).setPhoto(influenceFactorDetailsList.get(j).getPhoto());
+                }
+            }
+        }
+        return tableDetailsVOList;
+    }
+
+    @Override
+    public TableRiskDetailsVO getTableRiskDetailsByTableId(Integer tableId) {
+        List<TableComputerExplain> tableComputerExplainList = enterpriseDetailsMapper.getTableRiskCountDetailsByTableId(tableId);
+      TableRiskDetailsVO tableRiskDetailsVO = enterpriseDetailsMapper.getTableRiskDetailsByTableId(tableId);
+        tableRiskDetailsVO.setComputerExplainList(tableComputerExplainList);
+        return tableRiskDetailsVO;
+    }
+
+    @Override
+    public String getWordUrlById(Integer enterpriseId) {
+        return enterpriseDetailsMapper.getWordUrlById(enterpriseId);
     }
 }

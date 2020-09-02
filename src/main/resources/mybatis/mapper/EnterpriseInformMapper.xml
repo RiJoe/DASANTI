@@ -36,12 +36,14 @@
         INSERT INTO influence_factor_details (
         enterprise_id,
         category_id,
+        influence_factor,
         determine_factor,
         score,
         photo
         ) VALUES (
         #{enterpriseId},
         #{categoryId},
+        #{influenceFactor},
         #{determineFactor},
         #{score},
         #{photo}
@@ -58,7 +60,7 @@
     </insert>
     <insert id="saveOtherInfluenceDetails" parameterType="com.dasanti.riskmessageinput.entity.OtherInfluenceDetails">
         INSERT INTO other_influence (
-        enterprise_id,
+        other_enterprise_id,
         valuation_category,
         major_risk_category,
         judge_l,
@@ -67,7 +69,7 @@
         judge_r,
         risk_level
         ) VALUES (
-        #{enterpriseId},
+        #{otherEnterpriseId},
         #{valuationCategory},
         #{majorRiskCategory},
         #{judgeL},
@@ -91,7 +93,7 @@
         #{riskLevel},
         #{riskMeasure},
         #{levelColor},
-        #{iconURL}
+        #{iconUrl}
         )
     </insert>
 </mapper>

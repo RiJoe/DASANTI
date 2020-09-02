@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : 192.168.163.129_3306
+ Source Server         : localhost_3306
  Source Server Type    : MySQL
- Source Server Version : 50731
- Source Host           : 192.168.163.133:3306
+ Source Server Version : 50729
+ Source Host           : localhost:3306
  Source Schema         : risk_assessment
 
  Target Server Type    : MySQL
- Target Server Version : 50731
+ Target Server Version : 50729
  File Encoding         : 65001
 
- Date: 24/08/2020 17:40:42
+ Date: 02/09/2020 12:15:08
 */
 
 SET NAMES utf8mb4;
@@ -37,14 +37,20 @@ CREATE TABLE `enterprise_inform`  (
   `major_danger` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `major_risk_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 121 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 139 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of enterprise_inform
 -- ----------------------------
-INSERT INTO `enterprise_inform` VALUES (118, 64, '深圳大三体安全科技有限公司', 'mark', '深圳中海信创新产业城', 'joe', '13035810522', '', '', 500, 600, '200', '', '');
-INSERT INTO `enterprise_inform` VALUES (119, 65, 'Google', 'mark', '深圳北站', 'joe', '13035810522', '', '', 500, 600, '200', '', '');
-INSERT INTO `enterprise_inform` VALUES (120, 66, '华为', 'Joe', '深圳北站', 'joe', '13035810522', '', '', 500, 400, '200', '', '');
+INSERT INTO `enterprise_inform` VALUES (130, 64, '深圳大三体安全科技有限公司', '', '', '', '', '', '', NULL, 300, '', '', '');
+INSERT INTO `enterprise_inform` VALUES (131, 77, '深圳第三人民医院', '', '', '', '', '', '', NULL, 400, '', '', '');
+INSERT INTO `enterprise_inform` VALUES (132, 76, '深圳甘坑新村', '', '', '', '', '', '', NULL, 800, '', '', '');
+INSERT INTO `enterprise_inform` VALUES (133, 69, '深圳华南城', '撒地方', '', '', '', '', '', NULL, 2323, '', '', '');
+INSERT INTO `enterprise_inform` VALUES (134, 69, '深圳布吉街', '', '', '', '', '', '', NULL, 800, '', '', '');
+INSERT INTO `enterprise_inform` VALUES (135, 64, '4234', '234', '234', '234', '', '', '', NULL, 23423, '', '', '');
+INSERT INTO `enterprise_inform` VALUES (136, 67, '234', '234', '234', '234', '234', '23', '23', 23, 234, '', '', '');
+INSERT INTO `enterprise_inform` VALUES (137, 67, '儿童', '', '', '', '', '', '', NULL, 234234, '', '', '');
+INSERT INTO `enterprise_inform` VALUES (138, 69, '深圳中信银行', 'Jack', '', '', '', '', '', NULL, 600, '', '', '');
 
 -- ----------------------------
 -- Table structure for influence_factor_details
@@ -57,48 +63,69 @@ CREATE TABLE `influence_factor_details`  (
   `determine_factor` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `score` int(11) NULL DEFAULT NULL,
   `photo` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `influence_factor` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 173 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 300 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of influence_factor_details
 -- ----------------------------
-INSERT INTO `influence_factor_details` VALUES (137, 118, 1, '二级', 7, 'http://127.0.0.1:7000/uploadFile/1597651915199003.jpg');
-INSERT INTO `influence_factor_details` VALUES (138, 118, 1, '其他（电梯）', 4, '');
-INSERT INTO `influence_factor_details` VALUES (139, 118, 1, '砂光机', 5, '');
-INSERT INTO `influence_factor_details` VALUES (140, 118, 1, '冲剪压机械', 5, '');
-INSERT INTO `influence_factor_details` VALUES (141, 118, 1, '危险化学品名称（闪点）、最大存量、MSDS', 5, '');
-INSERT INTO `influence_factor_details` VALUES (142, 118, 1, '有限空间', 5, '');
-INSERT INTO `influence_factor_details` VALUES (143, 118, 1, '喷漆喷油', 5, '');
-INSERT INTO `influence_factor_details` VALUES (144, 118, 1, '有预案有演练', -2, 'http://127.0.0.1:7000/uploadFile/1597651945404dingdangmao.jpg,http://127.0.0.1:7000/uploadFile/1597651939688003.jpg');
-INSERT INTO `influence_factor_details` VALUES (145, 118, 2, '达标但记录不完善', 2, '');
-INSERT INTO `influence_factor_details` VALUES (146, 118, 2, '有自查自报，但未上传', 2, '');
-INSERT INTO `influence_factor_details` VALUES (147, 118, 2, '无三级培训', 5, '');
-INSERT INTO `influence_factor_details` VALUES (148, 118, 3, '100～300', 7, '');
-INSERT INTO `influence_factor_details` VALUES (149, 119, 1, '基本满足', 2, '');
-INSERT INTO `influence_factor_details` VALUES (150, 119, 1, '框架', 1, '');
-INSERT INTO `influence_factor_details` VALUES (151, 119, 1, '可燃', 4, '');
-INSERT INTO `influence_factor_details` VALUES (152, 119, 1, '较少', 2, '');
-INSERT INTO `influence_factor_details` VALUES (153, 119, 1, '大部分占用', 4, '');
-INSERT INTO `influence_factor_details` VALUES (154, 119, 1, '有室内外消防栓系统', 1, '');
-INSERT INTO `influence_factor_details` VALUES (155, 119, 1, '无消防救援队', 4, '');
-INSERT INTO `influence_factor_details` VALUES (156, 119, 2, '人员证书不全', 2, '');
-INSERT INTO `influence_factor_details` VALUES (157, 119, 2, '安全防护设备设施配备不到位等', 4, '');
-INSERT INTO `influence_factor_details` VALUES (158, 119, 2, '无电动自行车集中充电站', 4, '');
-INSERT INTO `influence_factor_details` VALUES (159, 119, 2, '“三小”场所存在“三合一”现象', 4, '');
-INSERT INTO `influence_factor_details` VALUES (160, 119, 2, '出租屋有人员管理（门禁、人员登记），且有安全宣传栏', 1, '');
-INSERT INTO `influence_factor_details` VALUES (161, 119, 3, '高：P≧20000人/km2', 4, '');
-INSERT INTO `influence_factor_details` VALUES (162, 119, 3, '外来人员 75%-50%', 6, '');
-INSERT INTO `influence_factor_details` VALUES (163, 120, 1, '大于100米小于等于150米', 6, '');
-INSERT INTO `influence_factor_details` VALUES (164, 120, 1, '宿舍、公寓建筑', 3, '');
-INSERT INTO `influence_factor_details` VALUES (165, 120, 1, '可燃', 6, '');
-INSERT INTO `influence_factor_details` VALUES (166, 120, 1, '多', 6, '');
-INSERT INTO `influence_factor_details` VALUES (167, 120, 1, '无预案无演练', 3, '');
-INSERT INTO `influence_factor_details` VALUES (168, 120, 2, '人员证书不全，且员工未经三级教育培训上岗', 5, '');
-INSERT INTO `influence_factor_details` VALUES (169, 120, 2, '安全防护设备设施配备不到位等', 6, '');
-INSERT INTO `influence_factor_details` VALUES (170, 120, 2, '作业环境不规范，无隐患自查自报及整改制度等', 6, '');
-INSERT INTO `influence_factor_details` VALUES (171, 120, 2, '未定期进行安全宣传', 2, '');
-INSERT INTO `influence_factor_details` VALUES (172, 120, 3, '高', 6, '');
+INSERT INTO `influence_factor_details` VALUES (244, 130, 1, '二级', 7, 'http://127.0.0.1:7000/uploadFile/1598415319500IMGL7483.JPG', '重大危险源');
+INSERT INTO `influence_factor_details` VALUES (245, 130, 1, '压力容器', 7, '', '特种设备');
+INSERT INTO `influence_factor_details` VALUES (246, 130, 1, '洁净车间', 7, '', '危险设备、设施');
+INSERT INTO `influence_factor_details` VALUES (247, 130, 1, '危险化学品名称（闪点）、最大存量、MSDS', 5, '', '危险化学品');
+INSERT INTO `influence_factor_details` VALUES (248, 130, 1, '涉氨', 5, '', '危险工艺');
+INSERT INTO `influence_factor_details` VALUES (249, 130, 1, '有预案无演练', 1, '', '应急反应');
+INSERT INTO `influence_factor_details` VALUES (250, 130, 2, '达标但记录不完善', 2, '', '安全生产标准化');
+INSERT INTO `influence_factor_details` VALUES (251, 130, 2, '有自查自报并上传到系统', 1, '', '隐患自查自报');
+INSERT INTO `influence_factor_details` VALUES (252, 130, 2, '有三级培训但不完善', 2, '', '安全教育');
+INSERT INTO `influence_factor_details` VALUES (253, 130, 3, '100～300', 7, '', '从业人数（每班）');
+INSERT INTO `influence_factor_details` VALUES (254, 131, 1, '50m≤h＜100m', 3, '', '最高建筑高度');
+INSERT INTO `influence_factor_details` VALUES (255, 131, 1, '6000m2≤S＜10000 ㎡', 3, 'http://127.0.0.1:7000/uploadFile/1598415391908IMGL7491.JPG', '建筑面积');
+INSERT INTO `influence_factor_details` VALUES (256, 131, 1, '100 张以下', 1, '', '床位数');
+INSERT INTO `influence_factor_details` VALUES (257, 131, 1, '较少', 3, 'http://127.0.0.1:7000/uploadFile/1598415402614IMGL7483.JPG', '可燃物数量');
+INSERT INTO `influence_factor_details` VALUES (258, 131, 1, '有预案无演练', 1, '', '应急反应');
+INSERT INTO `influence_factor_details` VALUES (259, 131, 2, '人员证书齐全，且三级教育记录完善', 1, '', '人的因素');
+INSERT INTO `influence_factor_details` VALUES (260, 131, 2, '安全防护设备设施配备不到位等', 6, '', '物的因素');
+INSERT INTO `influence_factor_details` VALUES (261, 131, 2, '作业环境不规范，无隐患自查自报及整改制度等', 6, '', '环境因素');
+INSERT INTO `influence_factor_details` VALUES (262, 131, 2, '安全管理制度健全，但不完善', 2, '', '管理因素');
+INSERT INTO `influence_factor_details` VALUES (263, 131, 3, '极高', 10, '', '高峰时段人员密度');
+INSERT INTO `influence_factor_details` VALUES (264, 132, 1, '多层', 3, 'http://127.0.0.1:7000/uploadFile/1598415630385003.jpg', '所处建筑类型');
+INSERT INTO `influence_factor_details` VALUES (265, 132, 1, '极多', 10, '', '可燃物数量');
+INSERT INTO `influence_factor_details` VALUES (266, 132, 1, '有预案无演练', 1, '', '应急反应');
+INSERT INTO `influence_factor_details` VALUES (267, 132, 2, '人员证书不全', 2, '', '人的因素');
+INSERT INTO `influence_factor_details` VALUES (268, 132, 2, '安全防护设备设施配备不到位等', 6, '', '物的因素');
+INSERT INTO `influence_factor_details` VALUES (269, 132, 2, '作业环境不规范，无隐患自查自报及整改制度等', 6, '', '环境因素');
+INSERT INTO `influence_factor_details` VALUES (270, 132, 2, '安全管理制度健全，但记录不完善', 2, '', '管理因素');
+INSERT INTO `influence_factor_details` VALUES (271, 132, 3, '失能人员或老弱', 6, '', '救助站救助人员情况');
+INSERT INTO `influence_factor_details` VALUES (272, 132, 3, '中', 5, '', '人员密度');
+INSERT INTO `influence_factor_details` VALUES (273, 133, 1, '大于24米小于100米', 4, '', '建筑高度');
+INSERT INTO `influence_factor_details` VALUES (274, 133, 1, '小于10000㎡', 2, '', '建筑面积');
+INSERT INTO `influence_factor_details` VALUES (275, 133, 1, '可燃', 6, '', '可燃物燃烧性能');
+INSERT INTO `influence_factor_details` VALUES (276, 133, 1, '多', 6, '', '可燃物数量');
+INSERT INTO `influence_factor_details` VALUES (277, 133, 1, '有预案无演练', 1, '', '应急反应');
+INSERT INTO `influence_factor_details` VALUES (278, 133, 2, '人员证书不全，或员工三级教育不完善', 2, '', '人的因素');
+INSERT INTO `influence_factor_details` VALUES (279, 133, 2, '安全防护设备设施配备不到位等', 6, '', '物的因素');
+INSERT INTO `influence_factor_details` VALUES (280, 133, 2, '安全管理制度健全，标准化达标且有效运行', 1, '', '管理因素');
+INSERT INTO `influence_factor_details` VALUES (281, 133, 3, '极高', 10, '', '高峰时段人员密度');
+INSERT INTO `influence_factor_details` VALUES (282, 134, 1, '大于100米小于等于150米', 6, '', '建筑高度');
+INSERT INTO `influence_factor_details` VALUES (283, 134, 1, '易燃', 10, '', '可燃物燃烧性能');
+INSERT INTO `influence_factor_details` VALUES (284, 134, 1, '大于10000㎡小于50000 ㎡', 4, '', '建筑面积');
+INSERT INTO `influence_factor_details` VALUES (285, 134, 1, '较少', 3, '', '可燃物数量');
+INSERT INTO `influence_factor_details` VALUES (286, 134, 1, '无预案无演练', 3, '', '应急反应');
+INSERT INTO `influence_factor_details` VALUES (287, 134, 2, '人员证书不全，且员工未经三级教育培训上岗', 5, '', '人的因素');
+INSERT INTO `influence_factor_details` VALUES (288, 134, 2, '安全防护设备设施配备不到位等', 6, '', '物的因素');
+INSERT INTO `influence_factor_details` VALUES (289, 134, 2, '安全管理制度健全，标准化达标，但记录不完善', 2, '', '管理因素');
+INSERT INTO `influence_factor_details` VALUES (290, 134, 3, '极高', 10, '', '高峰时段人员密度');
+INSERT INTO `influence_factor_details` VALUES (291, 138, 1, '大于24米小于100米', 4, 'http://127.0.0.1:7000/uploadFile/1599016581305IMGL7496.JPG,http://127.0.0.1:7000/uploadFile/1599016576108IMGL7479.JPG', '建筑高度');
+INSERT INTO `influence_factor_details` VALUES (292, 138, 1, '大于50000㎡小于100000㎡', 6, 'http://127.0.0.1:7000/uploadFile/1599016592448IMGL7491.JPG', '建筑面积');
+INSERT INTO `influence_factor_details` VALUES (293, 138, 1, '难燃', 3, '', '可燃物燃烧性能');
+INSERT INTO `influence_factor_details` VALUES (294, 138, 1, '多', 6, '', '可燃物数量');
+INSERT INTO `influence_factor_details` VALUES (295, 138, 1, '有预案有演练', -2, 'http://127.0.0.1:7000/uploadFile/1599016620436IMGL7500.JPG,http://127.0.0.1:7000/uploadFile/1599016615375IMGL7501.JPG,http://127.0.0.1:7000/uploadFile/1599016611022IMGL7480.JPG', '应急反应');
+INSERT INTO `influence_factor_details` VALUES (296, 138, 2, '人员证书不全，或员工三级教育不完善', 2, 'http://127.0.0.1:7000/uploadFile/1599016641103IMGL7502.JPG,http://127.0.0.1:7000/uploadFile/1599016627520IMGL7479.JPG', '人的因素');
+INSERT INTO `influence_factor_details` VALUES (297, 138, 2, '安全防护设备设施配备不到位等', 6, 'http://127.0.0.1:7000/uploadFile/1599016654448IMGL7497.JPG', '物的因素');
+INSERT INTO `influence_factor_details` VALUES (298, 138, 2, '安全管理制度不健全，未开展安全生产标准化达标创建', 5, '', '管理因素');
+INSERT INTO `influence_factor_details` VALUES (299, 138, 3, '高', 6, '', '高峰时段人员密度');
 
 -- ----------------------------
 -- Table structure for input_message
@@ -114,7 +141,7 @@ CREATE TABLE `input_message`  (
   `table_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `photo` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1391 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1454 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of input_message
@@ -1347,6 +1374,69 @@ INSERT INTO `input_message` VALUES (1387, 98, 3, '暴露频繁程度', '连续�
 INSERT INTO `input_message` VALUES (1388, 98, 3, '暴露频繁程度', '每天暴露', 6, '2020年观湖街道控停烂尾楼点位风险评估表', '每天暴露图片');
 INSERT INTO `input_message` VALUES (1389, 98, 3, '暴露频繁程度', '每周一次、每月几次或偶然暴露', 3, '2020年观湖街道控停烂尾楼点位风险评估表', '每周一次、每月几次或偶然暴露图片');
 INSERT INTO `input_message` VALUES (1390, 98, 3, '暴露频繁程度', '每年几次暴露', 1, '2020年观湖街道控停烂尾楼点位风险评估表', '每年几次暴露图片');
+INSERT INTO `input_message` VALUES (1391, 99, 1, '年限', 'Y＞5年', 6, '2020年观湖街道户外广告牌点位风险评估表', 'Y＞5年图片');
+INSERT INTO `input_message` VALUES (1392, 99, 1, '年限', '2年＜Y≤5年', 3, '2020年观湖街道户外广告牌点位风险评估表', '2年＜Y≤5年图片');
+INSERT INTO `input_message` VALUES (1393, 99, 1, '年限', 'Y≤2年', 1, '2020年观湖街道户外广告牌点位风险评估表', 'Y≤2年图片');
+INSERT INTO `input_message` VALUES (1394, 99, 1, '高度', 'H＞10米', 6, '2020年观湖街道户外广告牌点位风险评估表', 'H＞10米图片');
+INSERT INTO `input_message` VALUES (1395, 99, 1, '高度', '3米＜H≤10米', 3, '2020年观湖街道户外广告牌点位风险评估表', '3米＜H≤10米图片');
+INSERT INTO `input_message` VALUES (1396, 99, 1, '高度', 'H≤3米', 1, '2020年观湖街道户外广告牌点位风险评估表', 'H≤3米图片');
+INSERT INTO `input_message` VALUES (1397, 99, 1, '面积', 'S＞20m2', 6, '2020年观湖街道户外广告牌点位风险评估表', 'S＞20m2图片');
+INSERT INTO `input_message` VALUES (1398, 99, 1, '面积', '6m2＜S≤20m2', 3, '2020年观湖街道户外广告牌点位风险评估表', '6m2＜S≤20m2图片');
+INSERT INTO `input_message` VALUES (1399, 99, 1, '面积', 'S≤6m2', 1, '2020年观湖街道户外广告牌点位风险评估表', 'S≤6m2图片');
+INSERT INTO `input_message` VALUES (1400, 99, 1, '燃烧性能', '易燃', 8, '2020年观湖街道户外广告牌点位风险评估表', '易燃图片');
+INSERT INTO `input_message` VALUES (1401, 99, 1, '燃烧性能', '可燃', 4, '2020年观湖街道户外广告牌点位风险评估表', '可燃图片');
+INSERT INTO `input_message` VALUES (1402, 99, 1, '燃烧性能', '难燃', 2, '2020年观湖街道户外广告牌点位风险评估表', '难燃图片');
+INSERT INTO `input_message` VALUES (1403, 99, 1, '燃烧性能', '不燃', 1, '2020年观湖街道户外广告牌点位风险评估表', '不燃图片');
+INSERT INTO `input_message` VALUES (1404, 99, 1, '应急反应', '无预案无演练', 3, '2020年观湖街道户外广告牌点位风险评估表', '无预案无演练图片');
+INSERT INTO `input_message` VALUES (1405, 99, 1, '应急反应', '有预案无演练', 1, '2020年观湖街道户外广告牌点位风险评估表', '有预案无演练图片');
+INSERT INTO `input_message` VALUES (1406, 99, 1, '应急反应', '有预案有演练', -2, '2020年观湖街道户外广告牌点位风险评估表', '有预案有演练图片');
+INSERT INTO `input_message` VALUES (1407, 99, 2, '安全设计', '不符合有关安全技术标准和规范（荷载、防雷、防风、防火、抗震、电气安全）的要求', 10, '2020年观湖街道户外广告牌点位风险评估表', '不符合有关安全技术标准和规范（荷载、防雷、防风、防火、抗震、电气安全）的要求图片');
+INSERT INTO `input_message` VALUES (1408, 99, 2, '安全设计', '无不合格情况', 1, '2020年观湖街道户外广告牌点位风险评估表', '无不合格情况图片');
+INSERT INTO `input_message` VALUES (1409, 99, 2, '安全检测', '未按规定进行定期安全检测、建立安全档案', 5, '2020年观湖街道户外广告牌点位风险评估表', '未按规定进行定期安全检测、建立安全档案图片');
+INSERT INTO `input_message` VALUES (1410, 99, 2, '安全检测', '无不合格情况', 1, '2020年观湖街道户外广告牌点位风险评估表', '无不合格情况图片');
+INSERT INTO `input_message` VALUES (1411, 99, 2, '安全检查', '气象部门发布台风、大风黄色以上和暴雨红色预警信号时，未按规定进行安全安全检查，采取加固或者拆除等安全防范措施', 5, '2020年观湖街道户外广告牌点位风险评估表', '气象部门发布台风、大风黄色以上和暴雨红色预警信号时，未按规定进行安全安全检查，采取加固或者拆除等安全防范措施图片');
+INSERT INTO `input_message` VALUES (1412, 99, 2, '安全检查', '无不合格情况', 1, '2020年观湖街道户外广告牌点位风险评估表', '无不合格情况图片');
+INSERT INTO `input_message` VALUES (1413, 99, 2, '监督检查', '主管部门未定期组织安全检查', 5, '2020年观湖街道户外广告牌点位风险评估表', '主管部门未定期组织安全检查图片');
+INSERT INTO `input_message` VALUES (1414, 99, 2, '监督检查', '主管部门定期组织安全检查', 1, '2020年观湖街道户外广告牌点位风险评估表', '主管部门定期组织安全检查图片');
+INSERT INTO `input_message` VALUES (1415, 99, 3, '人群密度', '极高：P≧25000人/km2', 10, '2020年观湖街道户外广告牌点位风险评估表', '极高：P≧25000人/km2图片');
+INSERT INTO `input_message` VALUES (1416, 99, 3, '人群密度', '高：P≧20000人/km2', 6, '2020年观湖街道户外广告牌点位风险评估表', '高：P≧20000人/km2图片');
+INSERT INTO `input_message` VALUES (1417, 99, 3, '人群密度', '中：P≧10000人/km2', 3, '2020年观湖街道户外广告牌点位风险评估表', '中：P≧10000人/km2图片');
+INSERT INTO `input_message` VALUES (1418, 99, 3, '人群密度', '低：P＜10000人/km2', 1, '2020年观湖街道户外广告牌点位风险评估表', '低：P＜10000人/km2图片');
+INSERT INTO `input_message` VALUES (1419, 100, 1, '年限', 'Y＞10年', 6, '2020年观湖街道玻璃幕墙点位风险评估表', 'Y＞10年图片');
+INSERT INTO `input_message` VALUES (1420, 100, 1, '年限', '5年＜Y≤10年', 3, '2020年观湖街道玻璃幕墙点位风险评估表', '5年＜Y≤10年图片');
+INSERT INTO `input_message` VALUES (1421, 100, 1, '年限', 'Y≤5年', 1, '2020年观湖街道玻璃幕墙点位风险评估表', 'Y≤5年图片');
+INSERT INTO `input_message` VALUES (1422, 100, 1, '所在建筑高度', 'H＞100米', 10, '2020年观湖街道玻璃幕墙点位风险评估表', 'H＞100米图片');
+INSERT INTO `input_message` VALUES (1423, 100, 1, '所在建筑高度', '50米＜H≤100米', 6, '2020年观湖街道玻璃幕墙点位风险评估表', '50米＜H≤100米图片');
+INSERT INTO `input_message` VALUES (1424, 100, 1, '所在建筑高度', '24米＜H≤50米', 3, '2020年观湖街道玻璃幕墙点位风险评估表', '24米＜H≤50米图片');
+INSERT INTO `input_message` VALUES (1425, 100, 1, '所在建筑高度', 'H≤24米', 1, '2020年观湖街道玻璃幕墙点位风险评估表', 'H≤24米图片');
+INSERT INTO `input_message` VALUES (1426, 100, 1, '面积', 'S＞20000m2', 10, '2020年观湖街道玻璃幕墙点位风险评估表', 'S＞20000m2图片');
+INSERT INTO `input_message` VALUES (1427, 100, 1, '面积', '5000m2＜S≤20000m2', 6, '2020年观湖街道玻璃幕墙点位风险评估表', '5000m2＜S≤20000m2图片');
+INSERT INTO `input_message` VALUES (1428, 100, 1, '面积', '1000m2＜S≤5000m2', 3, '2020年观湖街道玻璃幕墙点位风险评估表', '1000m2＜S≤5000m2图片');
+INSERT INTO `input_message` VALUES (1429, 100, 1, '面积', 'S≤1000m2', 1, '2020年观湖街道玻璃幕墙点位风险评估表', 'S≤1000m2图片');
+INSERT INTO `input_message` VALUES (1430, 100, 1, '应急反应', '无预案无演练', 3, '2020年观湖街道玻璃幕墙点位风险评估表', '无预案无演练图片');
+INSERT INTO `input_message` VALUES (1431, 100, 1, '应急反应', '有预案无演练', 1, '2020年观湖街道玻璃幕墙点位风险评估表', '有预案无演练图片');
+INSERT INTO `input_message` VALUES (1432, 100, 1, '应急反应', '有预案有演练', -2, '2020年观湖街道玻璃幕墙点位风险评估表', '有预案有演练图片');
+INSERT INTO `input_message` VALUES (1433, 100, 2, '安全设计', '不符合有关安全技术标准和规范（防火、防雷、防光污染等）', 10, '2020年观湖街道玻璃幕墙点位风险评估表', '不符合有关安全技术标准和规范（防火、防雷、防光污染等）图片');
+INSERT INTO `input_message` VALUES (1434, 100, 2, '安全设计', '无不合格情况', 1, '2020年观湖街道玻璃幕墙点位风险评估表', '无不合格情况图片');
+INSERT INTO `input_message` VALUES (1435, 100, 2, '开启窗情况', '开启窗存在松动、不灵活，五金件锈蚀等情况', 5, '2020年观湖街道玻璃幕墙点位风险评估表', '开启窗存在松动、不灵活，五金件锈蚀等情况图片');
+INSERT INTO `input_message` VALUES (1436, 100, 2, '开启窗情况', '无不合格情况', 1, '2020年观湖街道玻璃幕墙点位风险评估表', '无不合格情况图片');
+INSERT INTO `input_message` VALUES (1437, 100, 2, '胶、密封条', '存在过期、老化（弹性粉化龟裂）、气泡、开裂、收缩脱落等情况', 5, '2020年观湖街道玻璃幕墙点位风险评估表', '存在过期、老化（弹性粉化龟裂）、气泡、开裂、收缩脱落等情况图片');
+INSERT INTO `input_message` VALUES (1438, 100, 2, '玻璃类型', '非安全玻璃', 5, '2020年观湖街道玻璃幕墙点位风险评估表', '非安全玻璃图片');
+INSERT INTO `input_message` VALUES (1439, 100, 2, '玻璃类型', '安全玻璃（钢化玻璃、夹层玻璃及两者组合的玻璃制品）', 1, '2020年观湖街道玻璃幕墙点位风险评估表', '安全玻璃（钢化玻璃、夹层玻璃及两者组合的玻璃制品）图片');
+INSERT INTO `input_message` VALUES (1440, 100, 2, '玻璃完整情况', '存在破损、自爆等情况', 5, '2020年观湖街道玻璃幕墙点位风险评估表', '存在破损、自爆等情况图片');
+INSERT INTO `input_message` VALUES (1441, 100, 2, '玻璃完整情况', '无不合格情况', 1, '2020年观湖街道玻璃幕墙点位风险评估表', '无不合格情况图片');
+INSERT INTO `input_message` VALUES (1442, 100, 2, '受力构件情况', '存在变形、错位、松动、锈蚀（防腐层脱落）的情况', 5, '2020年观湖街道玻璃幕墙点位风险评估表', '存在变形、错位、松动、锈蚀（防腐层脱落）的情况图片');
+INSERT INTO `input_message` VALUES (1443, 100, 2, '受力构件情况', '无不合格情况', 1, '2020年观湖街道玻璃幕墙点位风险评估表', '无不合格情况图片');
+INSERT INTO `input_message` VALUES (1444, 100, 2, '安全检测', '未按照规定定期进行质量安全性检测及保养', 5, '2020年观湖街道玻璃幕墙点位风险评估表', '未按照规定定期进行质量安全性检测及保养图片');
+INSERT INTO `input_message` VALUES (1445, 100, 2, '安全检测', '无不合格情况', 1, '2020年观湖街道玻璃幕墙点位风险评估表', '无不合格情况图片');
+INSERT INTO `input_message` VALUES (1446, 100, 2, '安全检查', '气象部门发布台风、大风黄色以上和暴雨红色预警信号时，未按规定进行安全检查，采取加固或者拆除等安全防范措施', 5, '2020年观湖街道玻璃幕墙点位风险评估表', '气象部门发布台风、大风黄色以上和暴雨红色预警信号时，未按规定进行安全检查，采取加固或者拆除等安全防范措施图片');
+INSERT INTO `input_message` VALUES (1447, 100, 2, '安全检查', '无不合格情况', 1, '2020年观湖街道玻璃幕墙点位风险评估表', '无不合格情况图片');
+INSERT INTO `input_message` VALUES (1448, 100, 2, '监督检查', '主管部门未定期组织安全检查', 5, '2020年观湖街道玻璃幕墙点位风险评估表', '主管部门未定期组织安全检查图片');
+INSERT INTO `input_message` VALUES (1449, 100, 2, '监督检查', '主管部门定期组织安全检查', 1, '2020年观湖街道玻璃幕墙点位风险评估表', '主管部门定期组织安全检查图片');
+INSERT INTO `input_message` VALUES (1450, 100, 3, '人群密度', '极高：P≧25000人/km2', 10, '2020年观湖街道玻璃幕墙点位风险评估表', '极高：P≧25000人/km2图片');
+INSERT INTO `input_message` VALUES (1451, 100, 3, '人群密度', '高：P≧20000人/km2', 6, '2020年观湖街道玻璃幕墙点位风险评估表', '高：P≧20000人/km2图片');
+INSERT INTO `input_message` VALUES (1452, 100, 3, '人群密度', '中：P≧10000人/km2', 3, '2020年观湖街道玻璃幕墙点位风险评估表', '中：P≧10000人/km2图片');
+INSERT INTO `input_message` VALUES (1453, 100, 3, '人群密度', '低：P＜10000人/km2', 1, '2020年观湖街道玻璃幕墙点位风险评估表', '低：P＜10000人/km2图片');
 
 -- ----------------------------
 -- Table structure for input_table
@@ -1356,7 +1446,7 @@ CREATE TABLE `input_table`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `table_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 99 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 102 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of input_table
@@ -1396,6 +1486,9 @@ INSERT INTO `input_table` VALUES (95, '2020年观湖街道电动汽车充电站�
 INSERT INTO `input_table` VALUES (96, '2020年观湖街道工业园区点位风险评估表');
 INSERT INTO `input_table` VALUES (97, '2020年观湖街道建筑工地点位风险评估表');
 INSERT INTO `input_table` VALUES (98, '2020年观湖街道控停烂尾楼点位风险评估表');
+INSERT INTO `input_table` VALUES (99, '2020年观湖街道户外广告牌点位风险评估表');
+INSERT INTO `input_table` VALUES (100, '2020年观湖街道玻璃幕墙点位风险评估表');
+INSERT INTO `input_table` VALUES (101, '2020年观湖街道城市点位风险评估表（其他）');
 
 -- ----------------------------
 -- Table structure for input_table_details
@@ -1408,7 +1501,7 @@ CREATE TABLE `input_table_details`  (
   `category_id` int(11) NULL DEFAULT NULL,
   `table_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 398 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 422 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of input_table_details
@@ -1777,6 +1870,59 @@ INSERT INTO `input_table_details` VALUES (394, 98, '外墙附属物', 2, '2020�
 INSERT INTO `input_table_details` VALUES (395, 98, '封闭情况', 2, '2020年观湖街道控停烂尾楼点位风险评估表');
 INSERT INTO `input_table_details` VALUES (396, 98, '安全巡查', 2, '2020年观湖街道控停烂尾楼点位风险评估表');
 INSERT INTO `input_table_details` VALUES (397, 98, '暴露频繁程度', 3, '2020年观湖街道控停烂尾楼点位风险评估表');
+INSERT INTO `input_table_details` VALUES (398, 99, '年限', 1, '2020年观湖街道户外广告牌点位风险评估表');
+INSERT INTO `input_table_details` VALUES (399, 99, '高度', 1, '2020年观湖街道户外广告牌点位风险评估表');
+INSERT INTO `input_table_details` VALUES (400, 99, '面积', 1, '2020年观湖街道户外广告牌点位风险评估表');
+INSERT INTO `input_table_details` VALUES (401, 99, '燃烧性能', 1, '2020年观湖街道户外广告牌点位风险评估表');
+INSERT INTO `input_table_details` VALUES (402, 99, '应急反应', 1, '2020年观湖街道户外广告牌点位风险评估表');
+INSERT INTO `input_table_details` VALUES (403, 99, '安全设计', 2, '2020年观湖街道户外广告牌点位风险评估表');
+INSERT INTO `input_table_details` VALUES (404, 99, '安全检测', 2, '2020年观湖街道户外广告牌点位风险评估表');
+INSERT INTO `input_table_details` VALUES (405, 99, '安全检查', 2, '2020年观湖街道户外广告牌点位风险评估表');
+INSERT INTO `input_table_details` VALUES (406, 99, '监督检查', 2, '2020年观湖街道户外广告牌点位风险评估表');
+INSERT INTO `input_table_details` VALUES (407, 99, '人群密度', 3, '2020年观湖街道户外广告牌点位风险评估表');
+INSERT INTO `input_table_details` VALUES (408, 100, '年限', 1, '2020年观湖街道玻璃幕墙点位风险评估表');
+INSERT INTO `input_table_details` VALUES (409, 100, '所在建筑高度', 1, '2020年观湖街道玻璃幕墙点位风险评估表');
+INSERT INTO `input_table_details` VALUES (410, 100, '面积', 1, '2020年观湖街道玻璃幕墙点位风险评估表');
+INSERT INTO `input_table_details` VALUES (411, 100, '应急反应', 1, '2020年观湖街道玻璃幕墙点位风险评估表');
+INSERT INTO `input_table_details` VALUES (412, 100, '安全设计', 2, '2020年观湖街道玻璃幕墙点位风险评估表');
+INSERT INTO `input_table_details` VALUES (413, 100, '开启窗情况', 2, '2020年观湖街道玻璃幕墙点位风险评估表');
+INSERT INTO `input_table_details` VALUES (414, 100, '胶、密封条', 2, '2020年观湖街道玻璃幕墙点位风险评估表');
+INSERT INTO `input_table_details` VALUES (415, 100, '玻璃类型', 2, '2020年观湖街道玻璃幕墙点位风险评估表');
+INSERT INTO `input_table_details` VALUES (416, 100, '玻璃完整情况', 2, '2020年观湖街道玻璃幕墙点位风险评估表');
+INSERT INTO `input_table_details` VALUES (417, 100, '受力构件情况', 2, '2020年观湖街道玻璃幕墙点位风险评估表');
+INSERT INTO `input_table_details` VALUES (418, 100, '安全检测', 2, '2020年观湖街道玻璃幕墙点位风险评估表');
+INSERT INTO `input_table_details` VALUES (419, 100, '安全检查', 2, '2020年观湖街道玻璃幕墙点位风险评估表');
+INSERT INTO `input_table_details` VALUES (420, 100, '监督检查', 2, '2020年观湖街道玻璃幕墙点位风险评估表');
+INSERT INTO `input_table_details` VALUES (421, 100, '人群密度', 3, '2020年观湖街道玻璃幕墙点位风险评估表');
+
+-- ----------------------------
+-- Table structure for other_enterprise_inform
+-- ----------------------------
+DROP TABLE IF EXISTS `other_enterprise_inform`;
+CREATE TABLE `other_enterprise_inform`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `other_company_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `other_principal` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `other_number` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `other_lng` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `other_lat` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 47 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of other_enterprise_inform
+-- ----------------------------
+INSERT INTO `other_enterprise_inform` VALUES (36, '深圳大三体安全科技有限公司', 'jerr', '11353544515', '22°14′15″', '14');
+INSERT INTO `other_enterprise_inform` VALUES (37, '深圳中信银行', 'mark', '12132513252', '14', '14');
+INSERT INTO `other_enterprise_inform` VALUES (38, '深圳甘坑新村', 'tom', '13515154151', '15', '15');
+INSERT INTO `other_enterprise_inform` VALUES (39, '深圳布吉街', 'joe', '13138265155', '14', '14');
+INSERT INTO `other_enterprise_inform` VALUES (40, '深圳中海信创新产业城', 'Joe', '13151351551', '14', '14');
+INSERT INTO `other_enterprise_inform` VALUES (41, '深圳华南城', 'jerry', '13151521548', '14', '14');
+INSERT INTO `other_enterprise_inform` VALUES (42, '深圳小梅沙', 'pony', '1354545154', '14', '14');
+INSERT INTO `other_enterprise_inform` VALUES (43, '深圳大梅沙', 'TOM', '13555544646', '14', '14');
+INSERT INTO `other_enterprise_inform` VALUES (44, '深圳北站', 'Jerry', '13888886668', '14', '14');
+INSERT INTO `other_enterprise_inform` VALUES (45, '深圳站', 'jack', '18888888888', '17', '15');
+INSERT INTO `other_enterprise_inform` VALUES (46, '深圳市龙岗区', 'mark', '158885858585', '14', '14');
 
 -- ----------------------------
 -- Table structure for other_influence
@@ -1784,16 +1930,63 @@ INSERT INTO `input_table_details` VALUES (397, 98, '暴露频繁程度', 3, '202
 DROP TABLE IF EXISTS `other_influence`;
 CREATE TABLE `other_influence`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `enterprise_id` int(11) NULL DEFAULT NULL,
+  `other_enterprise_id` int(11) NULL DEFAULT NULL,
   `valuation_category` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `major_risk_category` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `judge_l` int(11) NULL DEFAULT NULL,
-  `judge_e` int(11) NULL DEFAULT NULL,
-  `judge_c` int(11) NULL DEFAULT NULL,
-  `judge_r` int(11) NULL DEFAULT NULL,
+  `judge_l` float(11, 1) NULL DEFAULT NULL,
+  `judge_e` float(11, 1) NULL DEFAULT NULL,
+  `judge_c` float(11, 1) NULL DEFAULT NULL,
+  `judge_r` float(11, 1) NULL DEFAULT NULL,
   `risk_level` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 72 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of other_influence
+-- ----------------------------
+INSERT INTO `other_influence` VALUES (47, 36, '再生资源回收站', '长实', 1.0, 3.0, 40.0, 180.0, '一般风险');
+INSERT INTO `other_influence` VALUES (48, 36, '再生资源回收站', '机械', 6.0, 2.0, 3.0, 36.0, '可接受');
+INSERT INTO `other_influence` VALUES (49, 36, '再生资源回收站', '触电', 3.0, 2.0, 7.0, 42.0, '可接受');
+INSERT INTO `other_influence` VALUES (50, 36, '再生资源回收站', '坍塌', 1.0, 3.0, 40.0, 180.0, '一般风险');
+INSERT INTO `other_influence` VALUES (51, 36, '再生资源回收站', '爆炸', 6.0, 2.0, 7.0, 84.0, '低风险');
+INSERT INTO `other_influence` VALUES (52, 37, '垃圾分类', '厨余垃圾', 3.0, 3.0, 33.0, 188.0, '一般风险');
+INSERT INTO `other_influence` VALUES (53, 37, '垃圾分类', '其他垃圾', 2.0, 3.0, 40.0, 250.0, '较大风险');
+INSERT INTO `other_influence` VALUES (54, 37, '垃圾分类', '可回收垃圾', 3.0, 5.0, 50.0, 400.0, '重大风险');
+INSERT INTO `other_influence` VALUES (55, 38, '不可再生资源', '触电', 1.0, 3.0, 15.0, 40.0, '较大风险');
+INSERT INTO `other_influence` VALUES (56, 38, '不可再生资源', '物体打击', 6.0, 3.0, 7.0, 126.0, '低风险');
+INSERT INTO `other_influence` VALUES (57, 39, '风能', '触电', 3.0, 2.0, 7.0, 50.0, '可接受');
+INSERT INTO `other_influence` VALUES (58, 39, '风能', '坍塌', 1.5, 3.0, 40.0, 180.0, '一般风险');
+INSERT INTO `other_influence` VALUES (59, 39, '风能', '爆炸', 6.0, 2.0, 7.0, 42.0, '可接受');
+INSERT INTO `other_influence` VALUES (60, 40, '潮汐能', '触电', 1.5, 5.0, 40.0, 280.0, '较大风险');
+INSERT INTO `other_influence` VALUES (61, 41, '光能', '触电', 15.0, 33.0, 15.0, 800.0, '重大风险');
+INSERT INTO `other_influence` VALUES (62, 42, '海洋能', '污染', 41.0, 11.0, 12.0, 600.0, '较大风险');
+INSERT INTO `other_influence` VALUES (63, 43, '潮汐能', '潮汐能', 5.0, 1.5, 80.0, 600.0, '较大风险');
+INSERT INTO `other_influence` VALUES (64, 43, '潮汐能', '风能', 5.0, 1.5, 80.0, 600.0, '较大风险');
+INSERT INTO `other_influence` VALUES (65, 43, '潮汐能', '海啸', 5.0, 3.0, 80.0, 1000.0, '重大风险');
+INSERT INTO `other_influence` VALUES (66, 44, '火车站', '人员密度', 5.0, 5.0, 40.0, 1000.0, '重大风险');
+INSERT INTO `other_influence` VALUES (67, 44, '火车站', '车速', 5.0, 5.0, 30.0, 750.0, '较大风险');
+INSERT INTO `other_influence` VALUES (68, 45, '动车', '车速', 5.0, 5.0, 20.0, 500.0, '一般风险');
+INSERT INTO `other_influence` VALUES (69, 46, '交通', ' 拥堵', 10.0, 10.0, 10.0, 1000.0, '重大风险');
+INSERT INTO `other_influence` VALUES (70, 46, '交通', ' sd', 10.0, 10.0, 10.0, 1000.0, '重大风险');
+INSERT INTO `other_influence` VALUES (71, 46, '交通', '事故', 5.0, 5.0, 10.0, 250.0, '一般风险');
+
+-- ----------------------------
+-- Table structure for other_word_details
+-- ----------------------------
+DROP TABLE IF EXISTS `other_word_details`;
+CREATE TABLE `other_word_details`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `other_enterprise_id` int(11) NULL DEFAULT NULL,
+  `other_word_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of other_word_details
+-- ----------------------------
+INSERT INTO `other_word_details` VALUES (8, 36, 'http://127.0.0.1:7000/uploadFile/1598950008780000观湖企业风险评估.docx');
+INSERT INTO `other_word_details` VALUES (9, 37, 'http://127.0.0.1:7000/uploadFile/1598950174800dingdangmao.jpg');
+INSERT INTO `other_word_details` VALUES (10, 46, 'http://127.0.0.1:7000/uploadFile/1599015814860risk.docx');
 
 -- ----------------------------
 -- Table structure for risk_determination
@@ -1808,14 +2001,238 @@ CREATE TABLE `risk_determination`  (
   `level_color` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `icon_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of risk_determination
 -- ----------------------------
-INSERT INTO `risk_determination` VALUES (1, 118, 600, '一般风险', '需要整改，整改、检查', 'yellow', 'http://localhost:7000/uploadFile/yellow1.png');
-INSERT INTO `risk_determination` VALUES (2, 119, 600, '低风险', '需要注意，培训、检查', 'blue', 'http://localhost:7000/uploadFile/blue1.png');
-INSERT INTO `risk_determination` VALUES (3, 120, 400, '重大风险', '不可容许、停工', 'red', 'http://localhost:7000/uploadFile/red1.png');
+INSERT INTO `risk_determination` VALUES (13, 130, 300, '低风险', '需要注意，培训、检查', 'blue', 'http://localhost:7000/uploadFile/blue1.png');
+INSERT INTO `risk_determination` VALUES (14, 131, 400, '低风险', '需要注意，培训、检查', 'blue', 'http://localhost:7000/uploadFile/blue1.png');
+INSERT INTO `risk_determination` VALUES (15, 132, 800, '重大风险', '不可容许、停工', 'red', 'http://localhost:7000/uploadFile/red1.png');
+INSERT INTO `risk_determination` VALUES (16, 133, 2323, '重大风险', '不可容许、停工', 'red', 'http://localhost:7000/uploadFile/red1.png');
+INSERT INTO `risk_determination` VALUES (17, 134, 800, '一般风险', '需要整改，整改、检查', 'yellow', 'http://localhost:7000/uploadFile/yellow1.png');
+INSERT INTO `risk_determination` VALUES (18, 135, 23423, '重大风险', '不可容许、停工', 'red', 'http://localhost:7000/uploadFile/red1.png');
+INSERT INTO `risk_determination` VALUES (19, 136, 234, '可接受', '无', 'green', 'http://localhost:7000/uploadFile/green1.png');
+INSERT INTO `risk_determination` VALUES (20, 137, 234234, '重大风险', '不可容许、停工', 'red', 'http://localhost:7000/uploadFile/red1.png');
+INSERT INTO `risk_determination` VALUES (21, 138, 600, '一般风险', '需要整改，整改、检查', 'yellow', 'http://localhost:7000/uploadFile/yellow1.png');
+
+-- ----------------------------
+-- Table structure for table_computer_explain
+-- ----------------------------
+DROP TABLE IF EXISTS `table_computer_explain`;
+CREATE TABLE `table_computer_explain`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `table_id` int(11) NULL DEFAULT NULL,
+  `computer_count` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 149 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of table_computer_explain
+-- ----------------------------
+INSERT INTO `table_computer_explain` VALUES (1, 64, '事故后果得分值=重大危险源得分值+特种设备得分值+危险设备得分值+危险化学品得分值+危险工艺得分值+应急反应得分值');
+INSERT INTO `table_computer_explain` VALUES (2, 64, '事故可能性得分值=标准化得分值+隐患自查自报得分值+安全教育培训情况得分值 ');
+INSERT INTO `table_computer_explain` VALUES (3, 64, '事故暴露程度得分值=从业人数得分值');
+INSERT INTO `table_computer_explain` VALUES (4, 64, '事故风险值=事故后果*事故可能性*事故暴露程度');
+INSERT INTO `table_computer_explain` VALUES (5, 65, '事故后果得分值=防火间距情况得分值+主要房屋建筑类型得分值+可燃物燃烧性能得分值+可燃物数量得分值+疏散条件得分值+消防设施配备情况得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (6, 65, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值+宣传教育得分值；');
+INSERT INTO `table_computer_explain` VALUES (7, 65, '人群暴露程度得分值=人员密度得分值+人员组成情况得分值；');
+INSERT INTO `table_computer_explain` VALUES (8, 65, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (9, 66, '事故后果得分值=建筑高度得分值+建筑面积得分值+建筑用途得分值+可燃物燃烧性能得分值+可燃物数量得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (10, 66, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值+宣传教育得分值；');
+INSERT INTO `table_computer_explain` VALUES (11, 66, '人群暴露程度得分值=人员密度对应得分值；');
+INSERT INTO `table_computer_explain` VALUES (12, 66, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (13, 67, '事故后果得分值=商场位置得分值+商场面积得分值+可燃物燃烧性能得分值+可燃物数量得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (14, 67, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值；');
+INSERT INTO `table_computer_explain` VALUES (15, 67, '人群暴露程程度得分值=高峰时段人员密度对应得分值；');
+INSERT INTO `table_computer_explain` VALUES (16, 67, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (17, 68, '事故后果得分值=市场位置得分值+商场面积得分值+可燃物燃烧性能得分值+可燃物数量得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (18, 68, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值得分值；');
+INSERT INTO `table_computer_explain` VALUES (19, 68, '人群暴露程度得分值=高峰时段人员密度对应得分值；');
+INSERT INTO `table_computer_explain` VALUES (20, 68, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (21, 69, '事故后果得分值=建筑高度得分值+建筑面积得分值+可燃物燃烧性能\r\n得分值+可燃物数量得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (22, 69, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素\r\n得分值+管理的因素得分值+宣传教育得分值；');
+INSERT INTO `table_computer_explain` VALUES (23, 69, '人群暴露程度得分值=高峰时段人员密度对应得分值；');
+INSERT INTO `table_computer_explain` VALUES (24, 69, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (25, 70, '事故后果得分值=枢纽位置得分值+建筑面积得分值+可燃物燃烧性能得分值+可燃物数量得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (26, 70, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值； ');
+INSERT INTO `table_computer_explain` VALUES (27, 70, '人群暴露程度得分值=日均客流量对应得分值；');
+INSERT INTO `table_computer_explain` VALUES (28, 70, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (29, 71, '事故后果得分值=车站规模得分值+车站面积得分值+可燃物燃烧性能得分值+可燃物数量得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (30, 71, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值；');
+INSERT INTO `table_computer_explain` VALUES (31, 71, '人群暴露程度得分值=日均最大发送人数对应得分值；');
+INSERT INTO `table_computer_explain` VALUES (32, 71, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (33, 72, '事故后果得分值=码头性质得分值+车站面积得分值+可燃物燃烧性能得分值+可燃物数量得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (34, 72, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值；');
+INSERT INTO `table_computer_explain` VALUES (35, 72, '人群暴露程度得分值=高峰时段人员密度对应得分值；');
+INSERT INTO `table_computer_explain` VALUES (36, 72, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (37, 73, '事故后果得分值=主教学楼层数得分值+主教学楼面积得分值+主教学楼火灾负载得分值+首层疏散楼梯宽度得分值+可燃物数量得分值+ 所处建筑类型得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (38, 73, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值+宣传教育得分值；');
+INSERT INTO `table_computer_explain` VALUES (39, 73, '人群暴露程度得分值=在校生人数对应得分值；');
+INSERT INTO `table_computer_explain` VALUES (40, 73, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (41, 74, '事故后果得分值=建筑总层数得分值+建筑面积得分值+安全出口（1）得分值+安全出口（2）得分值+可燃物数量得分值+所处建筑类型得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (42, 74, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值；');
+INSERT INTO `table_computer_explain` VALUES (43, 74, '人群暴露程度得分值=最大在校婴幼儿人数对应得分值；');
+INSERT INTO `table_computer_explain` VALUES (44, 74, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (45, 75, '事故后果得分值=所处建筑类型得分值+建筑面积得分值+可燃物数量得分值+床位数得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (46, 75, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值；');
+INSERT INTO `table_computer_explain` VALUES (47, 75, '人群暴露程度得分值=主要人员行动能力对应得分值；');
+INSERT INTO `table_computer_explain` VALUES (48, 75, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (49, 76, '事故后果得分值=所处建筑类型得分值+建筑面积得分值+可燃物数量得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (50, 76, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值；');
+INSERT INTO `table_computer_explain` VALUES (51, 76, '人群暴露程度得分值=救助站救助人员情况得分值+人员密度得分值；');
+INSERT INTO `table_computer_explain` VALUES (52, 76, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (53, 77, '事故后果得分值=最高建筑高度得分值+建筑面积得分值+床位数得分值+可燃物数量得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (54, 77, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值；');
+INSERT INTO `table_computer_explain` VALUES (55, 77, '人群暴露程度得分值=高峰时段人员密度对应得分值；');
+INSERT INTO `table_computer_explain` VALUES (56, 77, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (57, 78, '事故后果得分值=所处建筑类型得分值+建筑面积得分值+可燃物燃烧性能得分值+可燃物数量得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (58, 78, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值+宣传教育得分值；');
+INSERT INTO `table_computer_explain` VALUES (59, 78, '人群暴露程度得分值=高峰时段人员密度对应得分值；');
+INSERT INTO `table_computer_explain` VALUES (60, 78, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (61, 79, '事故后果得分值=所处建筑类型得分值+建筑面积得分值+可燃物燃烧性能得分值+藏书量得分值+可燃物数量得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (62, 79, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值；');
+INSERT INTO `table_computer_explain` VALUES (63, 79, '人群暴露程度得分值=高峰时段人员密度对应得分值；');
+INSERT INTO `table_computer_explain` VALUES (64, 79, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (65, 80, '事故后果得分值=体育馆座位数得分值+建筑面积得分值+可燃物燃烧性能得分值+可燃物数量得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (66, 80, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值；');
+INSERT INTO `table_computer_explain` VALUES (67, 80, '人群暴露程度得分值=高峰时段人员密度对应得分值；');
+INSERT INTO `table_computer_explain` VALUES (68, 80, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (69, 81, '事故后果得分值=应急广播设置情况得分值+景区道路通行能力得分值+可燃物燃烧性能得分值+可燃物数量得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (70, 81, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值+宣传教育得分值；');
+INSERT INTO `table_computer_explain` VALUES (71, 81, '人群暴露程度的分值=日均最大接待人数对应分值；');
+INSERT INTO `table_computer_explain` VALUES (72, 81, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (73, 82, '事故后果得分值=建筑类型得分值+占地面积得分值+可燃物燃烧性能得分值+所处建筑类型得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (74, 82, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值；');
+INSERT INTO `table_computer_explain` VALUES (75, 82, '人群暴露程度得分值=日均最大接待人数对应得分值；');
+INSERT INTO `table_computer_explain` VALUES (76, 82, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (77, 83, '事故后果得分值=活动场所面积得分值+活动场所特点得分值+可燃物数量得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (78, 83, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值；');
+INSERT INTO `table_computer_explain` VALUES (79, 83, '人群暴露程度得分值=参与人员特点得分值+活动参与人数得分值；');
+INSERT INTO `table_computer_explain` VALUES (80, 83, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (81, 84, '事故后果得分值=隧道长度得分值+车道情况得分值+应急反应得分值');
+INSERT INTO `table_computer_explain` VALUES (82, 84, '事故可能性得分值=隧道限速情况（V）得分值+隧道照明设施情况分值得分值+隧道内射流风机的配置状况分值得分值+消防设施管理情况分值得分值+管理因素得分值');
+INSERT INTO `table_computer_explain` VALUES (83, 84, '人群暴露程度得分值=日均车流量（N）得分值。');
+INSERT INTO `table_computer_explain` VALUES (84, 84, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (85, 85, '事故后果得分值=桥梁分类（跨径）得分值+桥梁所属道路等级得分值+应急反应得分值');
+INSERT INTO `table_computer_explain` VALUES (86, 85, '事故可能性得分值=限高情况得分值+检查情况得分值+建设使用年限得分值+\r\n周边施工扰动情况得分值+直/弯桥得分值+车辆限载限行情况得分值');
+INSERT INTO `table_computer_explain` VALUES (87, 85, '人群暴露程度得分值=暴露频繁程度得分值');
+INSERT INTO `table_computer_explain` VALUES (88, 85, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (89, 86, '事故后果得分值=覆盖段地面环境得分值+应急反应得分值');
+INSERT INTO `table_computer_explain` VALUES (90, 86, '事故可能性得分值=结构类型分值+结构破损情况分值+上部荷载情况分值+维护管控措施分值+安全巡视得分值+人的因素得分值+管理因素得分值');
+INSERT INTO `table_computer_explain` VALUES (91, 86, '人群暴露程度得分值=暴露频繁程度得分值');
+INSERT INTO `table_computer_explain` VALUES (92, 86, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (93, 87, '事故后果得分值=功能用途得分值+建筑层数得分值+应急反应得分值');
+INSERT INTO `table_computer_explain` VALUES (94, 87, '事故可能性得分值=场地、地基基础、主体结构类别得分值+主体结构类型得分值+基础构造类型得分值+河道冲刷情况得分值');
+INSERT INTO `table_computer_explain` VALUES (95, 87, '人群暴露程度得分值=暴露频繁程度得分值');
+INSERT INTO `table_computer_explain` VALUES (96, 87, '事故风险值=事故后果*事故可能性*人群暴露程度 ');
+INSERT INTO `table_computer_explain` VALUES (97, 88, '事故后果得分值=功能用途得分值+建筑层数得分值+应急反应得分值');
+INSERT INTO `table_computer_explain` VALUES (98, 88, '事故可能性得分值=场地、地基基础、主体结构类别得分值+主体结构类型得分值+基础构造类型得分值+钢筋锈蚀情况得分值+氯离子含量得分值');
+INSERT INTO `table_computer_explain` VALUES (99, 88, '人群暴露程度得分值=暴露频繁程度得分值');
+INSERT INTO `table_computer_explain` VALUES (100, 88, '事故风险值=事故后果*事故可能性*人群暴露程度 ');
+INSERT INTO `table_computer_explain` VALUES (101, 89, '事故后果得分值=功能用途得分值+建筑层数得分值+建筑面积+应急反应得分值');
+INSERT INTO `table_computer_explain` VALUES (102, 89, '事故可能性得分值=主体结构类型得分值+结构安全排查结果');
+INSERT INTO `table_computer_explain` VALUES (103, 89, '人群暴露程度得分值=暴露频繁程度得分值');
+INSERT INTO `table_computer_explain` VALUES (104, 89, '事故风险值=事故后果*事故可能性*人群暴露程度 ');
+INSERT INTO `table_computer_explain` VALUES (105, 90, '事故后果得分值=已填容量得分值+填埋体高度 Ht（m）得分值+应急反应得分值');
+INSERT INTO `table_computer_explain` VALUES (106, 90, '事故可能性得分值=整治封场情况得分值+防排水设施得分值+周边边坡隐患得分值+选址及设计得分值+人的因素得分值+管理因素得分值');
+INSERT INTO `table_computer_explain` VALUES (107, 90, '人群暴露得分值=场址位置得分值得分值');
+INSERT INTO `table_computer_explain` VALUES (108, 90, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (109, 91, '事故后果得分值=已填容量得分值+填埋体高度 Ht（m）得分值+处理规模分值+应急反应得分值');
+INSERT INTO `table_computer_explain` VALUES (110, 91, '事故可能性得分值=整治封场情况得分值+防排水设施得分值+填埋体隐患得分值+周边边坡隐患得分值+选址及设计情况分值+人的因素得分值+管理因素得分值 ');
+INSERT INTO `table_computer_explain` VALUES (111, 91, '人群暴露得分值=场址位置得分值得分值');
+INSERT INTO `table_computer_explain` VALUES (112, 91, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (113, 92, '事故后果得分值=坡长得分值+坡高得分值+应急反应得分值');
+INSERT INTO `table_computer_explain` VALUES (114, 92, '事故可能性得分值=边坡坡度得分值+岩土体性质得分值+坡面植被覆盖得分值+坡面防护类型得分值+稳定性状态分得值+巡查情况得分值+维护管控措施得分值+安全管理得分值');
+INSERT INTO `table_computer_explain` VALUES (115, 92, '人群暴露得分值=周边建筑物的影响得分值');
+INSERT INTO `table_computer_explain` VALUES (116, 92, '事故风险值=事故后果*事故可能性*人群暴露程度 ');
+INSERT INTO `table_computer_explain` VALUES (117, 93, '事故后果得分值=所处建筑类型得分值+建筑面积得分值+可燃物燃烧性能得分值+可燃物数量得分值+消防设施+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (118, 93, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值+宣传教育得分值；');
+INSERT INTO `table_computer_explain` VALUES (119, 93, '人群暴露程度得分值=暴露频繁程度；');
+INSERT INTO `table_computer_explain` VALUES (120, 93, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (121, 94, '事故后果得分值=汛期降雨峰值得分值+历史淹没深度得分值+灾度得分值+应急反应得分值');
+INSERT INTO `table_computer_explain` VALUES (122, 94, '事故可能性得分值= 防排水设施情况得分值+巡查情况得分值+维护管控措施得分值');
+INSERT INTO `table_computer_explain` VALUES (123, 94, '人群暴露得分值=周边影响得分值');
+INSERT INTO `table_computer_explain` VALUES (124, 94, '事故风险值=事故后果*事故可能性*人群暴露程度 ');
+INSERT INTO `table_computer_explain` VALUES (125, 95, '事故后果得分值=规模得分值+应急反应得分值');
+INSERT INTO `table_computer_explain` VALUES (126, 95, '事故可能性得分值=消防设施管理情况得分值+选址及设计情况得分值+人的因素得分值+物的因素得分值+环境因素得分值+管理因素得分值');
+INSERT INTO `table_computer_explain` VALUES (127, 95, '人群暴露得分值=场址位置分值');
+INSERT INTO `table_computer_explain` VALUES (128, 95, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (129, 96, '事故后果得分值=总建筑面积得分值+防火间距得分值+主要建筑结构得分值+疏散条件得分值+消防设施配备情况得分值+特种设备得分值+危险化学品得分值+危险工艺（设施）得分值+应急救援得分值');
+INSERT INTO `table_computer_explain` VALUES (130, 96, '事故可能性得分值=人的因素得分值+物的因素得分值+环境因素得分值+管理因素得分值 +宣传教育得分值 ');
+INSERT INTO `table_computer_explain` VALUES (131, 96, '事故暴露程度得分值=园区人数得分值');
+INSERT INTO `table_computer_explain` VALUES (132, 96, '事故风险值=事故后果*事故可能性*事故暴露程度 ');
+INSERT INTO `table_computer_explain` VALUES (133, 97, '事故后果得分值=工程类型得分值+工程规模得分值+危险化学品得分值+危险作业得分值+消防安全得分值+应急反应得分值；');
+INSERT INTO `table_computer_explain` VALUES (134, 97, '事故可能性得分值=人的因素得分值+物的因素得分值+环境的因素得分值+管理的因素得分值+宣传教育得分值；');
+INSERT INTO `table_computer_explain` VALUES (135, 97, '人群暴露程度得分值=施工人数对应得分值；');
+INSERT INTO `table_computer_explain` VALUES (136, 97, '事故风险值=事故后果*事故可能性*人群暴露程度');
+INSERT INTO `table_computer_explain` VALUES (137, 98, '事故后果得分值=功能用途得分值+建筑层数得分值+建筑面积+应急反应得分值');
+INSERT INTO `table_computer_explain` VALUES (138, 98, '事故可能性得分值=主体结构类型得分值+外墙附属物得分值+封闭情况得分值+安全巡查得分值');
+INSERT INTO `table_computer_explain` VALUES (139, 98, '人群暴露程度得分值=暴露频繁程度得分值');
+INSERT INTO `table_computer_explain` VALUES (140, 98, '事故风险值=事故后果*事故可能性*人群暴露程度 ');
+INSERT INTO `table_computer_explain` VALUES (141, 99, '事故后果得分值=年限得分值+高度得分值+面积得分值+燃烧性能得分值+应急反应得分值');
+INSERT INTO `table_computer_explain` VALUES (142, 99, '事故可能性得分值=安全设计得分值+得分值+安全检测得分值+安全检查得分值+监督检查得分值');
+INSERT INTO `table_computer_explain` VALUES (143, 99, '人群暴露程度得分值=人群密度得分值');
+INSERT INTO `table_computer_explain` VALUES (144, 99, '事故风险值=事故后果*事故可能性*人群暴露程度 ');
+INSERT INTO `table_computer_explain` VALUES (145, 100, '事故后果得分值=年限得分值+所在建筑高度得分值+面积得分值+应急反应得分值');
+INSERT INTO `table_computer_explain` VALUES (146, 100, '事故可能性得分值=安全设计得分值+开启窗情况得分值+胶、密封条得分值+玻璃类型得分值+玻璃完整情况得分值+受力构件情况得分值+安全检测得分值+安全检查得分值+监督检查');
+INSERT INTO `table_computer_explain` VALUES (147, 100, '人群暴露程度得分值=人群密度得分值');
+INSERT INTO `table_computer_explain` VALUES (148, 100, '事故风险值=事故后果*事故可能性*人群暴露程度 ');
+
+-- ----------------------------
+-- Table structure for table_risk_level
+-- ----------------------------
+DROP TABLE IF EXISTS `table_risk_level`;
+CREATE TABLE `table_risk_level`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `table_id` int(11) NULL DEFAULT NULL,
+  `r_major_risk` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `r_larger_risk` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `r_general_risk` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `r_low_risk` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of table_risk_level
+-- ----------------------------
+INSERT INTO `table_risk_level` VALUES (1, 64, '≥1200', '1200＞R≥900', '900＞R≥600', '600＞R≥300');
+INSERT INTO `table_risk_level` VALUES (2, 65, '≥2000', '2000＞R≥1500', '1500＞R≥1000', '1000＞R≥500');
+INSERT INTO `table_risk_level` VALUES (3, 66, '≥317', '317＞R≥238', '238＞R≥158', '158＞R≥79');
+INSERT INTO `table_risk_level` VALUES (4, 67, '≥1632', '1632＞R≥1224', '1224＞R≥816', '861＞R≥408');
+INSERT INTO `table_risk_level` VALUES (5, 68, '≥720', '720＞R≥240', '240＞R≥150', '150＞R≥70');
+INSERT INTO `table_risk_level` VALUES (6, 69, '≥1152', '1152＞R≥864', '864＞R≥576', '576＞R≥288');
+INSERT INTO `table_risk_level` VALUES (7, 70, '≥720', '720＞R≥240', '240＞R≥150', '150＞R≥70');
+INSERT INTO `table_risk_level` VALUES (8, 71, '≥720', '720＞R≥240', '240＞R≥150', '150＞R≥70');
+INSERT INTO `table_risk_level` VALUES (9, 72, '≥720', '720＞R≥240', '240＞R≥150', '150＞R≥70');
+INSERT INTO `table_risk_level` VALUES (10, 73, '≥720', '720＞R≥240', '240＞R≥150', '150＞R≥70');
+INSERT INTO `table_risk_level` VALUES (11, 74, '≥720', '720＞R≥240', '240＞R≥150', '150＞R≥70');
+INSERT INTO `table_risk_level` VALUES (12, 75, '≥864', '864＞R≥648', '648＞R≥432', '432＞R≥216');
+INSERT INTO `table_risk_level` VALUES (13, 76, '≥720', '720＞R≥240', '240＞R≥150', '150＞R≥70');
+INSERT INTO `table_risk_level` VALUES (14, 77, '≥1200', '1200＞R≥900', '900＞R≥600', '600＞R≥300');
+INSERT INTO `table_risk_level` VALUES (15, 78, '≥1056', '1056＞R≥792', '792＞R≥528', '528＞R≥264');
+INSERT INTO `table_risk_level` VALUES (16, 79, '≥720', '720＞R≥240', '240＞R≥150', '150＞R≥70');
+INSERT INTO `table_risk_level` VALUES (17, 80, '≥720', '720＞R≥240', '240＞R≥150', '150＞R≥70');
+INSERT INTO `table_risk_level` VALUES (18, 81, '≥720', '720＞R≥240', '240＞R≥150', '150＞R≥70');
+INSERT INTO `table_risk_level` VALUES (19, 82, '≥720', '720＞R≥240', '240＞R≥150', '150＞R≥70');
+INSERT INTO `table_risk_level` VALUES (20, 83, '≥720', '720＞R≥240', '240＞R≥150', '150＞R≥70');
+INSERT INTO `table_risk_level` VALUES (21, 84, '≥450', '450＞R≥250', '250＞R≥100', '100＞R');
+INSERT INTO `table_risk_level` VALUES (22, 85, 'R≥720', '720＞R≥380', '380＞R≥250', '250＞R≥70');
+INSERT INTO `table_risk_level` VALUES (23, 86, 'R≥720', '720＞R≥320', '320＞R≥240', '240＞R');
+INSERT INTO `table_risk_level` VALUES (24, 87, 'R≥720', '720＞R≥340', '340＞R≥250', '250＞R');
+INSERT INTO `table_risk_level` VALUES (25, 88, 'R≥720', '720＞R≥380', '380＞R≥250', '250＞R');
+INSERT INTO `table_risk_level` VALUES (26, 89, 'R≥720', '720＞R≥380', '380＞R≥250', '250＞R');
+INSERT INTO `table_risk_level` VALUES (27, 90, 'R≥450', '450＞R≥250', '250＞R≥70', '70＞R');
+INSERT INTO `table_risk_level` VALUES (28, 91, 'R≥450', '450＞R≥250', '250＞R≥70', '70＞R');
+INSERT INTO `table_risk_level` VALUES (29, 92, 'R≥600', '600＞R≥450', '450＞R≥300', '300＞R');
+INSERT INTO `table_risk_level` VALUES (30, 93, '≥1056', '1056＞R≥792', '792＞R≥528', '528＞R≥264');
+INSERT INTO `table_risk_level` VALUES (31, 94, 'R≥600', '600＞R≥450', '450＞R≥300', '300＞R');
+INSERT INTO `table_risk_level` VALUES (32, 95, 'R≥450', '450＞R≥250', '250＞R≥70', '70＞R');
+INSERT INTO `table_risk_level` VALUES (33, 96, '≥1200', '1200＞R≥900', '900＞R≥600', '600＞R≥300');
+INSERT INTO `table_risk_level` VALUES (34, 97, '≥720', '720＞R≥240', '240＞R≥150', '150＞R≥70');
+INSERT INTO `table_risk_level` VALUES (35, 98, 'R≥720', '720＞R≥380', '380＞R≥250', '250＞R');
+INSERT INTO `table_risk_level` VALUES (36, 99, 'R≥720', '720＞R≥380', '380＞R≥250', '250＞R');
+INSERT INTO `table_risk_level` VALUES (37, 100, 'R≥720', '720＞R≥380', '380＞R≥250', '250＞R');
 
 -- ----------------------------
 -- Table structure for user
@@ -1842,13 +2259,23 @@ CREATE TABLE `word_details`  (
   `enterprise_id` int(11) NULL DEFAULT NULL,
   `word_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of word_details
 -- ----------------------------
-INSERT INTO `word_details` VALUES (11, 118, 'http://127.0.0.1:7000/uploadFile/1597651973081000观湖企业风险评估.docx');
-INSERT INTO `word_details` VALUES (12, 119, 'http://127.0.0.1:7000/uploadFile/159765215572211、151、231 深圳市曼园实业有限公司(2020.4.30).docx');
-INSERT INTO `word_details` VALUES (13, 120, 'http://127.0.0.1:7000/uploadFile/1597652230188000观湖企业风险评估.docx');
+INSERT INTO `word_details` VALUES (15, 130, 'http://127.0.0.1:7000/uploadFile/1598415359464IMGL7481.JPG');
+INSERT INTO `word_details` VALUES (16, 131, 'http://127.0.0.1:7000/uploadFile/159841543435804 观湖街道各行业风险点评估表20200624.doc');
+INSERT INTO `word_details` VALUES (17, 132, 'http://127.0.0.1:7000/uploadFile/1598415664765灭火器配置表 示例.doc');
+INSERT INTO `word_details` VALUES (18, 5, 'http://127.0.0.1:7000/uploadFile/1598578173845000观湖企业风险评估.docx');
+INSERT INTO `word_details` VALUES (19, 17, 'http://127.0.0.1:7000/uploadFile/1598579072425000观湖企业风险评估.docx');
+INSERT INTO `word_details` VALUES (20, 19, 'http://127.0.0.1:7000/uploadFile/1598579151727000观湖企业风险评估.docx');
+INSERT INTO `word_details` VALUES (21, 20, 'http://127.0.0.1:7000/uploadFile/1598838261762000观湖企业风险评估.docx');
+INSERT INTO `word_details` VALUES (22, 133, 'http://127.0.0.1:7000/uploadFile/1598838494638000观湖企业风险评估.docx');
+INSERT INTO `word_details` VALUES (23, NULL, 'http://127.0.0.1:7000/uploadFile/1598865897424000观湖企业风险评估.docx');
+INSERT INTO `word_details` VALUES (24, NULL, 'http://127.0.0.1:7000/uploadFile/1598866191657000观湖企业风险评估.docx');
+INSERT INTO `word_details` VALUES (25, 136, 'http://127.0.0.1:7000/uploadFile/1598867092161000观湖企业风险评估.docx');
+INSERT INTO `word_details` VALUES (26, 137, 'http://127.0.0.1:7000/uploadFile/1598867211159000观湖企业风险评估.docx');
+INSERT INTO `word_details` VALUES (27, 138, 'http://127.0.0.1:7000/uploadFile/1599016688358龙城工业区演练配音.docx');
 
 SET FOREIGN_KEY_CHECKS = 1;

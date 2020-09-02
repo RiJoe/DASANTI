@@ -8,12 +8,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OtherInfluenceDetails {
-    private Integer enterpriseId;
+    private Integer otherEnterpriseId;
     private String valuationCategory;
     private String majorRiskCategory;
-    private Integer judgeL;
-    private Integer judgeE;
-    private Integer judgeC;
-    private Integer judgeR;
+    private Float judgeL;
+    private Float judgeE;
+    private Float judgeC;
+    private Float judgeR;
     private String riskLevel;
 }

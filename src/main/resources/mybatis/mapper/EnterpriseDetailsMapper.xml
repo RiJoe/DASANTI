@@ -77,4 +77,81 @@
             </foreach>
         </if>
     </select>
+    <resultMap id="getTableDetailsByIdMap" type="com.dasanti.riskmessageinput.entity.TableDetailsVO">
+        <result column="table_id" property="tableId"/>
+        <result column="table_name" property="tableName"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="influence_factor" property="influenceFactor"/>
+        <result column="determine_factor" property="determineFactor"/>
+        <result column="score" property="score"/>
+    </resultMap>
+    <select id="getTableDetailsById" parameterType="java.lang.Integer" resultMap="getTableDetailsByIdMap">
+        SELECT
+         table_id,
+         table_name,
+         category_id,
+         influence_factor,
+         determine_factor,
+         score
+        FROM
+         input_message
+        WHERE
+         input_message.table_id = #{tableId}
+    </select>
+    <resultMap id="getInfluenceFactorDetailByEnterpriseIdMap" type="com.dasanti.riskmessageinput.entity.InfluenceFactorDetails">
+        <result column="enterprise_id" property="enterpriseId"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="influence_factor" property="influenceFactor"/>
+        <result column="determine_factor" property="determineFactor"/>
+        <result column="score" property="score"/>
+        <result column="photo" property="photo"/>
+    </resultMap>
+    <select id="getInfluenceFactorDetailByEnterpriseId" parameterType="java.lang.Integer" resultMap="getInfluenceFactorDetailByEnterpriseIdMap">
+        SELECT
+         *
+        FROM
+         influence_factor_details
+        WHERE
+         enterprise_id = #{enterpriseId}
+    </select>
+    <resultMap id="getTableRiskDetailsByTableIdMap" type="com.dasanti.riskmessageinput.entity.TableRiskDetailsVO">
+        <id column="table_risk_level.table_id" property="id"/>
+        <result column="r_major_risk" property="rMajorRisk"/>
+        <result column="r_larger_risk" property="rLargerRisk"/>
+        <result column="r_general_risk" property="rGeneralRisk"/>
+        <result column="r_low_risk" property="rLowRisk"/>
+    </resultMap>
+    <select id="getTableRiskDetailsByTableId" parameterType="java.lang.Integer" resultMap="getTableRiskDetailsByTableIdMap">
+        SELECT
+         r_major_risk,
+         r_larger_risk,
+         r_general_risk,
+         r_low_risk
+         FROM
+         table_risk_level
+         WHERE
+         table_risk_level.table_id = #{tableId}
+    </select>
+    <resultMap id="getTableRiskCountDetailsByTableIdMap" type="com.dasanti.riskmessageinput.entity.TableComputerExplain">
+        <result column="computer_count" property="computerCount"/>
+    </resultMap>
+    <select id="getTableRiskCountDetailsByTableId" parameterType="java.lang.Integer" resultMap="getTableRiskCountDetailsByTableIdMap">
+        SELECT
+        *
+        FROM
+        table_computer_explain
+        WHERE
+        table_computer_explain.table_id = #{tableId}
+    </select>
+    <resultMap id="getWordUrlByIdMap" type="java.lang.String">
+        <result column="word_url" property="wordUrl"/>
+    </resultMap>
+    <select id="getWordUrlById" parameterType="java.lang.Integer" resultMap="getWordUrlByIdMap">
+        SELECT
+        word_url
+        FROM
+        word_details
+        WHERE
+        enterprise_id = #{enterpriseId}
+    </select>
 </mapper>

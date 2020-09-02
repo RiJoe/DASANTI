@@ -1,8 +1,6 @@
 package com.dasanti.riskmessageinput.mapper;
 
-import com.dasanti.riskmessageinput.entity.EnterpriseDetailsVO;
-import com.dasanti.riskmessageinput.entity.EnterpriseInform;
-import com.dasanti.riskmessageinput.entity.EnterpriseRiskCountVO;
+import com.dasanti.riskmessageinput.entity.*;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -17,4 +15,14 @@ public interface EnterpriseDetailsMapper {
     List<Integer> getAllEnterpriseIdByRiskLevel(String riskLevel);
 
     List<EnterpriseInform> getAllEnterpriseByEnterpriseId(List<Integer> enterpriseIdList);
+
+    List<TableDetailsVO> getTableDetailsById(Integer tableId);
+
+    List<InfluenceFactorDetails> getInfluenceFactorDetailByEnterpriseId(Integer enterpriseId);
+
+    TableRiskDetailsVO getTableRiskDetailsByTableId(Integer tableId);
+
+    List<TableComputerExplain> getTableRiskCountDetailsByTableId(Integer tableId);
+
+    String getWordUrlById(Integer enterpriseId);
 }

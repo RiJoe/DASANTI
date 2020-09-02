@@ -86,7 +86,6 @@ public class EnterpriseInformController {
     // 保存word文档
     @RequestMapping("/save/word/url")
     public ResultEntity<String> saveWordUrl(@RequestBody WordUrl wordUrl){
-        System.out.println(wordUrl);
         try{
             enterpriseInformService.saveWordUrl(wordUrl);
             return ResultEntity.successWithoutData();
@@ -97,10 +96,10 @@ public class EnterpriseInformController {
     }
     // 保存其他模板类型信息
     @RequestMapping("/save/other/influence/details")
-    public ResultEntity<String> saveOtherInfluenceDetails(@RequestBody OtherInfluenceDetails otherInfluenceDetails){
+    public ResultEntity<OtherInfluenceDetails> saveOtherInfluenceDetails(@RequestBody OtherInfluenceDetails otherInfluenceDetails){
         try{
             enterpriseInformService.saveOtherInfluenceDetails(otherInfluenceDetails);
-            return ResultEntity.successWithoutData();
+            return ResultEntity.successWithData(otherInfluenceDetails);
         }catch(Exception e){
             e.printStackTrace();
             return ResultEntity.failed(e.getMessage());

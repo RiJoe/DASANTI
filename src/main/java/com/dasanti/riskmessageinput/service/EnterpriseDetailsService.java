@@ -1,10 +1,7 @@
 package com.dasanti.riskmessageinput.service;
 
-import com.dasanti.riskmessageinput.entity.EnterpriseDetailsVO;
-import com.dasanti.riskmessageinput.entity.EnterpriseInform;
-import com.dasanti.riskmessageinput.entity.EnterpriseRiskCountVO;
+import com.dasanti.riskmessageinput.entity.*;
 import com.dasanti.riskmessageinput.entity.page.PageResult;
-import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
@@ -14,4 +11,10 @@ public interface EnterpriseDetailsService {
     List<EnterpriseDetailsVO> getAllEnterprise();
 
     PageResult getAllRiskEnterpriseForPage(Integer pageNum, Integer pageSize, String riskLevel);
+
+    List<TableDetailsVO> getTableDetailsById(Integer tableId, Integer enterpriseId);
+
+    TableRiskDetailsVO getTableRiskDetailsByTableId(Integer tableId);
+
+    String getWordUrlById(Integer enterpriseId);
 }
