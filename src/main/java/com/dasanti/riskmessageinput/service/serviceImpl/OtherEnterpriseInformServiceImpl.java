@@ -31,6 +31,7 @@ public class OtherEnterpriseInformServiceImpl implements OtherEnterpriseInformSe
     }
 
     @Override
+    @SuppressWarnings("uncheck")
     public PageResult getAllOtherEnterprise(Integer pageNum,Integer pageSize) {
         PageResult pageResult = new PageResult();
         PageHelper.startPage(pageNum,pageSize);

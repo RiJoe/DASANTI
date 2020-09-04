@@ -1,10 +1,16 @@
 package com.dasanti.riskmessageinput.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
     // 跨域
@@ -22,8 +28,17 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/**")
-                .addResourceLocations("classpath:/static/");
+        /*registry.addResourceHandler("/uploadFile/**")
+                .addResourceLocations("file:D:/joe/devspace/uploadFile/");
+        WebMvcConfigurer.super.addResourceHandlers(registry);*/
+        String path = null;
+        try {
+            path = new File(ResourceUtils.getURL("").getPath()).getParent();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        registry.addResourceHandler("/**","/uploadFile/**")
+                .addResourceLocations("classpath:/static/","file:"+ path+"/uploadFile/" );
         WebMvcConfigurer.super.addResourceHandlers(registry);
     }
 }

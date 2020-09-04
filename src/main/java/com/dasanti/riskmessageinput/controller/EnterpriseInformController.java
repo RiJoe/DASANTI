@@ -51,8 +51,8 @@ public class EnterpriseInformController {
         if (file != null && file.getName() != null && !file.isEmpty()){
             try{
                 ResultEntity<String> filePath = UploadUtil.fileUpload(file);
-                if(filePath.getResult()=="SUCCESS"){
-                    src = "http://127.0.0.1:7000"+"/uploadFile" + filePath.getData();
+                if(filePath.getResult() =="SUCCESS"){
+                    src = "http://localhost:7000"+"/uploadFile" + filePath.getData();
                 }
                 System.out.println(src);
             }catch (Exception e){
